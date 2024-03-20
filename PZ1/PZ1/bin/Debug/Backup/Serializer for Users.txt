@@ -1,0 +1,9 @@
+
+
+            User admin = new User("Admin", UserRole.Admin, "admin123");
+            User visitor = new User("Visitor", UserRole.Visitor, "visitor123");
+            allUserCredentials= new List<User>();
+            allUserCredentials.Add(admin);
+            allUserCredentials.Add(visitor);
+
+            serializer.SerializeObject<List<User>>(allUserCredentials,"UserCredentials.xml");

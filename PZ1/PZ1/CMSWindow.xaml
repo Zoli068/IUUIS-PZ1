@@ -1,0 +1,103 @@
+﻿<Window x:Class="PZ1.CMSWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1"
+        mc:Ignorable="d"
+        Title="CMSWindow"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Height="650"
+        Width="1000"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <Canvas Height="650" 
+            Width="1000">
+
+        <Path
+        Name="UIPath"
+        Stroke="White"
+        StrokeThickness="1">
+
+            <Path.Fill>
+                <ImageBrush ImageSource="StarWarsSkyBackground.png"/>
+            </Path.Fill>
+            
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="60,0">
+                        <ArcSegment
+                            SweepDirection="Counterclockwise"
+                            IsLargeArc="False"
+                            RotationAngle="90"
+                            Point="0,60"
+                            Size="60,60"/>
+                        <LineSegment Point="0,590"/>
+                        <ArcSegment
+                            SweepDirection="Counterclockwise"
+                            IsLargeArc="False"
+                            RotationAngle="90"
+                            Point="60,650"
+                            Size="60,60"/>
+                        <LineSegment Point="950,650"/>                        
+                        <ArcSegment
+                            SweepDirection="Counterclockwise"
+                            IsLargeArc="False"
+                            RotationAngle="90"
+                            Point="1000,590"
+                            Size="60,60"/>
+                        <LineSegment Point="1000,60"/>
+                        <ArcSegment
+                            SweepDirection="Counterclockwise"
+                            IsLargeArc="False"
+                            RotationAngle="90"
+                            Point="950,0"
+                            Size="60,60"/>
+                        <LineSegment Point="60,0"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+            
+        </Path>
+
+
+
+
+        <StackPanel
+            Margin="70,70,0,70">
+            
+            <DataGrid 
+                Width="860" 
+                Height="510"
+                Background="Black"
+                HeadersVisibility="None"
+                BorderBrush="White">
+
+
+            </DataGrid>
+
+            <StackPanel Orientation="Horizontal"
+                Margin="0,15,0,15"
+                HorizontalAlignment="Right">
+
+                <Button 
+                    Content="Add Film"
+                    Height="40"
+                    Width="200"
+                    FontSize="34"
+                    Margin="0,0,30,0"/>
+
+                <Button 
+                    Content="Exit"
+                    Height="40"
+                    FontSize="34"
+                    Width="130"/>
+
+            </StackPanel>
+            
+        </StackPanel>
+    </Canvas>
+</Window>
