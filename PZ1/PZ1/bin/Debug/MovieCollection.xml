@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ArrayOfMovie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Movie>
+    <Rating>9.6</Rating>
+    <Title>Star Wars 4 - A New Hope</Title>
+    <ImagePath>C:\Users\Zoli\Documents\Images\SW4.jpg</ImagePath>
+    <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW4.rtf</DescriptionPath>
+    <DateAdded>2024-03-21T12:26:54.4737071+01:00</DateAdded>
+  </Movie>
+  <Movie>
+	 <Rating>9.6</Rating>
+	 <Title>Star Wars 4 - A New Hope</Title>
+	 <ImagePath>C:\Users\Zoli\Documents\Images\SW4.jpg</ImagePath>
+	 <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW4.rtf</DescriptionPath>
+	 <DateAdded>2024-03-21T12:26:54.4737071+01:00</DateAdded>
+  </Movie>
+</ArrayOfMovie>

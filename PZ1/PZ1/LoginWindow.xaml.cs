@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using FontAwesome5;
 using PZ1.Model;
 using PZ1.Helpers;
+using System.Threading;
 
 //Admin - admin123
 //Visitor - visitor123
@@ -29,14 +30,31 @@ namespace PZ1
 
         private List<User> allUserCredentials;
 
-        private User loggedInUser;
+        public User LoggedInUser { get; set; }
 
         public List<User> AllUserCredentials { get { return allUserCredentials; } }
 
         public LoginWindow()
         {
             allUserCredentials = serializer.DeSerializeObject<List<User>>("UserCredentials.xml");
+
+            if (allUserCredentials==null)
+            {
+
+                MessageBox.Show("Missing application files!","Error",MessageBoxButton.OK);
+
+                throw new Exception("CorruptedUserFiles");
+
+            }
+
+
             InitializeComponent();
+
+            //dev purpose
+            this.UserNameTextBox.Text = "Admin";
+            this.PasswordTextBox.Password = "admin123";
+            LoginButton_Click(null, null);
+            //
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,12 +71,21 @@ namespace PZ1
             {
                 Hide();             //Hide the login window at successfull atempt
 
-                CMSWindow CMSWindow = new CMSWindow();
+                CMSWindow CMSWindow = new CMSWindow(LoggedInUser);
                 CMSWindow.ShowDialog();
+
+                RemoveLoginValues();
 
                 Show();             //When we return from the CMS then we start showing the login windows again
             }
 
+        }
+
+        private void RemoveLoginValues()
+        {
+            LoggedInUser = null;
+            this.PasswordTextBox.Password = string.Empty;
+            this.UserNameTextBox.Text = string.Empty;
         }
 
         private void RemoveErrorMessages()
@@ -112,7 +139,7 @@ namespace PZ1
                         }
                         else
                         {
-                            loggedInUser = user;
+                            LoggedInUser = user;
                             return true;            //Successfully logged in
                         }
                     }
@@ -131,7 +158,27 @@ namespace PZ1
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
+            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(LoginButton), null);
+            Keyboard.ClearFocus();
             this.DragMove();
+        }
+
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LoginButton_Click(null, null);
+            }
+        }
+
+        private void UserNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.PasswordTextBox.Focus();
+            }
+
         }
     }
 }

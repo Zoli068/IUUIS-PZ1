@@ -3,32 +3,82 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace PZ1.Model
 {
     [Serializable]
     public class Movie
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string ImagePart {  get; set; }
+        private string imagePath;
+        private string descriptionPath;
+        private bool isChecked;
+        public double Rating { get; set; }
+        public string Title { get; set; }
+        public string ImagePath
+        {
+            get
+            {
+                return imagePath;
+            }
 
-        public string DescriptionPath {  get; set; }
+            set
+            {
+                imagePath = value;
+                ImageUri = new Uri("pack://"+@imagePath,UriKind.Absolute);
+            }
+        }
+        public string DescriptionPath
+        {
+            get
+            {
+                return descriptionPath;
+            }
+
+            set
+            {
+                descriptionPath = value;
+                DescriptionUri = new Uri(descriptionPath, UriKind.Absolute);
+            }
+        }
 
         public DateTime DateAdded { get; set; }
 
-        Movie() 
-        { 
+        [XmlIgnoreAttribute]
+        public Uri ImageUri { get; set; }
 
+        [XmlIgnoreAttribute]
+        public Uri DescriptionUri { get; set; }
+
+        [XmlIgnoreAttribute]
+        public bool IsChecked
+        {
+            get
+            {
+                return isChecked;
+            }
+
+            set
+            {
+                isChecked = value;
+            }
         }
 
-        Movie(int id, string name, string imagePart, string descriptionPath, DateTime dateAdded)
+        public Movie() 
         {
-            Id = id;
-            Name = name;
-            ImagePart = imagePart;
+            IsChecked = false;
+        }
+
+        public Movie(double rating ,string title, string imagePath, string descriptionPath, DateTime dateAdded)
+        {
+            Rating = rating;
+            Title = title;
+            ImagePath = imagePath;
             DescriptionPath = descriptionPath;
             DateAdded = dateAdded;
+            IsChecked = false;
+
+            DescriptionUri = new Uri(DescriptionPath);
         }
     }
 }

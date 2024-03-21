@@ -16,14 +16,14 @@
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
     AllowsTransparency="True"
     Background="Transparent">
-
+    
     <Border  
         CornerRadius="25"
         BorderThickness="1"
         Background="Black"
         BorderBrush="White">
 
-        <Grid>
+        <Grid  x:Name="grid1">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -62,6 +62,7 @@
 
                     <TextBox 
                     x:Name="UserNameTextBox"
+                    KeyDown="UserNameTextBox_KeyDown"
                     Grid.Row="1"
                     FontSize="21"
                     Height="30"
@@ -71,7 +72,6 @@
                            
                     Foreground="#FFE81F"
                     Background="Black"
-                    BorderBrush="White"
                     SelectionBrush="White"
                     CaretBrush="#FFE81F"/>
 
@@ -98,6 +98,7 @@
                     Margin="15,0,0,0"/>
 
                     <PasswordBox
+                    KeyDown="PasswordTextBox_KeyDown"
                     x:Name="PasswordTextBox"
                     Grid.Row="1"
                     PasswordChar="*"

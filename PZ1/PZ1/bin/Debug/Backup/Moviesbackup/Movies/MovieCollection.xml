@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ArrayOfMovie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Movie>
+    <Rating>8.5</Rating>
+    <Title>Star Wars 4 -A New Hope</Title>
+    <ImagePart>Movies/Images/SW4.jpg</ImagePart>
+    <DescriptionPath>Movies/Description/SW4.rtf</DescriptionPath>
+    <DateAdded>2024-03-20T23:56:45.6905382+01:00</DateAdded>
+  </Movie>
+</ArrayOfMovie>
