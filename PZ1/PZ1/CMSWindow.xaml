@@ -64,15 +64,22 @@
         </Path>
 
         <StackPanel
-            Margin="70,70,0,70">
-    
+            Margin="70,10,0,70">
+
+            <Label
+                MaxHeight="50"
+                Margin="0,0,0,10"
+                FontSize="48"
+                HorizontalContentAlignment="Center"
+                Content="Star Wars Movies"/>
+
             <DataGrid  
                 Width="860" 
                 Height="510"
-                HeadersVisibility="None"
+                HeadersVisibility="Column"
                 CanUserAddRows="False"
                 ItemsSource="{Binding Movies}"
-                MinRowHeight="100"
+                MinRowHeight="50"
                 AutoGenerateColumns="False"
                 Background="Black"
                 RowBackground="Transparent"
@@ -82,6 +89,18 @@
                 VerticalScrollBarVisibility="Hidden"
                 FontFamily="FontFamily/#SF Distant Galaxy">
 
+
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="BorderThickness" Value="1,0,0,1"/>
+                        <Setter Property="Foreground" Value="#FFE81F"/>
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
 
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridCell}">
@@ -102,38 +121,108 @@
                 
                 <DataGrid.Columns>
 
-                    <DataGridCheckBoxColumn>
-                        <DataGridCheckBoxColumn.ElementStyle>
-                            <Style TargetType="{x:Type CheckBox}">
-                                <Setter Property="IsEnabled" Value="False" />
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type CheckBox}">
-                                            <fa5:FontAwesome
-                                                    Icon="Brands_JediOrder"
-                                                    Foreground="GreenYellow"/>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </DataGridCheckBoxColumn.ElementStyle>
-                    </DataGridCheckBoxColumn>
+                    <DataGridTemplateColumn 
+                        Header="Selection"
+                        Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+
+                                <CheckBox
+                                    x:Name="CheckBoxDeleteSelection"
+                                    VerticalAlignment="Center"
+                                    Background="Black"
+                                    IsChecked="{Binding IsChecked,Mode=TwoWay}"
+                                    HorizontalAlignment="Center"
+                                    Click="CheckBoxDeleteSelection_Click"/>
+
+                                <DataTemplate.Resources>
+                                    <Style TargetType="{x:Type CheckBox}"  >
+                                        
+                                        <Setter Property="LayoutTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="5" ScaleY="5" />
+                                            </Setter.Value>
+                                        </Setter>
+
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="CheckBox"  >
+                                                    <Border x:Name="Border"
+                                                                  IsEnabled="False"
+                                                                  Width="15"
+                                                                  Height="15"
+                                                                  Background="{TemplateBinding Background}"
+                                                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                                                  BorderThickness="0.4">
+
+                                                        <fa5:SvgAwesome
+                                                           x:Name="CheckedIcon"
+                                                           Icon="Brands_JediOrder"
+                                                           Foreground="#2E67F8"/>
+
+                                                    </Border>
+
+                                                    <ControlTemplate.Triggers>
+
+                                                        <Trigger  Property="IsChecked" Value="false">
+                                                            <Setter Property="BorderBrush" Value="White"/>
+                                                            <Setter TargetName="CheckedIcon" Property="Visibility" Value="Collapsed" />
+                                                        </Trigger>
+                                                        
+                                                        <Trigger Property="IsMouseOver" Value="true">
+                                                            <Setter Property="BorderBrush" Value="#103CAB" />
+                                                        </Trigger>
+                                                        
+
+                                                        <Trigger Property="IsChecked" Value="True">
+                                                            <Setter Property="BorderBrush" Value="#103CAB" />
+                                                            <Setter TargetName="CheckedIcon" Property="Visibility" Value="Visible" />
+                                                        </Trigger>
+
+                                                    </ControlTemplate.Triggers>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+
+                                        </Setter>
+
+                                    </Style>
+                                </DataTemplate.Resources>
+                            
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
 
                     <DataGridTextColumn
-                        Width="300"
-                        FontSize="30"
-                       
+                        Width="345.5"
+                        FontSize="20"    
                         IsReadOnly="True"
-                        Binding="{Binding Title}"/>
-                    
+                        Header="Title"
+                        Binding="{Binding Title}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBox.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBox.TextAlignment" Value="Center"/>
+                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextBox.Margin" Value="5,0,5,0"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                        
+                    </DataGridTextColumn>
+
+
                     <DataGridTemplateColumn
-                         IsReadOnly="False">
+                         IsReadOnly="False"
+                         Width="267"
+                         Header="Image">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image 
-                                    MaxHeight="150"
-                                    MaxWidth="150"
+                                    Margin="0,5,0,5"
+                                    Height="100"
+                                    Width="270"
                                     Source="{Binding ImageUri}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -141,8 +230,21 @@
 
                     <DataGridTextColumn 
                         IsReadOnly="True"
-                        Binding="{Binding DateAdded}"/>
+                        Width="145"
+                        FontSize="20"    
+                        Header="Date"
+                        Binding="{Binding DateAdded}">
+                        
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                            <Setter Property="TextBox.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBox.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                            <Setter Property="TextBox.Margin" Value="5,0,5,0"/>
+                        </Style>
+                        </DataGridTextColumn.ElementStyle>
 
+                    </DataGridTextColumn>
 
                 </DataGrid.Columns>
 
@@ -151,6 +253,16 @@
             <StackPanel Orientation="Horizontal"
                 Margin="0,15,0,15"
                 HorizontalAlignment="Right">
+
+                <TextBlock
+                    Foreground="Red"
+                    Text="No Movies Selected For Delete"
+                    FontSize="17"
+                    FontFamily="FontFamily/#SF Distant Galaxy"
+                    Visibility="Visible"
+                    Background="Black"
+                    Margin="0,13,16,0"/>
+
 
                 <Button 
                     x:Name="NewMovieButton"
@@ -168,6 +280,7 @@
                     Height="40"
                     Width="190"
                     FontSize="34"
+                    Click="DeleteMovieButton_Click"
                     Margin="0,0,30,0"/>
 
                 <Button 
@@ -178,6 +291,7 @@
                     ToolTip="Go back to Login"
                     FontSize="34"
                     Width="130"/>
+
 
             </StackPanel>
         </StackPanel>

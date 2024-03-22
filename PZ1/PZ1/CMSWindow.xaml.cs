@@ -83,5 +83,36 @@ namespace PZ1
 
             Close();
         }
+
+        private void CheckBoxDeleteSelection_Click(object sender, RoutedEventArgs e)
+        {
+            Movie movie = (sender as FrameworkElement).DataContext as Movie;
+
+
+            if ( movie.IsChecked == false)
+            {
+                movie.IsChecked = true;
+            }
+            else
+            {
+                movie.IsChecked = false;
+            }
+
+        }
+
+        private void DeleteMovieButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            for(int i=Movies.Count-1; i>=0; i--) 
+            {
+                if(Movies.ElementAt(i).IsChecked == true)
+                {
+                    Movies.RemoveAt(i);
+                }
+            }
+
+        }
+
+
     }
 }

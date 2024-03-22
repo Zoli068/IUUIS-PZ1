@@ -33,13 +33,13 @@
             </Grid.RowDefinitions>
 
             <Label
-            x:Name="TitleLabel"
-            Grid.Row="0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Margin="0,15,0,0"
-            Content="Star Wars&#10;   Movies"
-            FontSize="45"/>
+                x:Name="LoginTitleLabel"
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0,35,0,0"
+                Content="Login"
+                FontSize="55"/>
 
             <StackPanel Grid.Row="1">
 

@@ -42,7 +42,7 @@ namespace PZ1.Model
             }
         }
 
-        public DateTime DateAdded { get; set; }
+        public string DateAdded { get; set; }
 
         [XmlIgnoreAttribute]
         public Uri ImageUri { get; set; }
@@ -69,7 +69,7 @@ namespace PZ1.Model
             IsChecked = false;
         }
 
-        public Movie(double rating ,string title, string imagePath, string descriptionPath, DateTime dateAdded)
+        public Movie(double rating ,string title, string imagePath, string descriptionPath, string dateAdded)
         {
             Rating = rating;
             Title = title;

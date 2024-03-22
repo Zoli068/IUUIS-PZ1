@@ -5,13 +5,34 @@
     <Title>Star Wars 4 - A New Hope</Title>
     <ImagePath>C:\Users\Zoli\Documents\Images\SW4.jpg</ImagePath>
     <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW4.rtf</DescriptionPath>
-    <DateAdded>2024-03-21T12:26:54.4737071+01:00</DateAdded>
+    <DateAdded>2024-03-21</DateAdded>
   </Movie>
   <Movie>
 	 <Rating>9.6</Rating>
-	 <Title>Star Wars 4 - A New Hope</Title>
-	 <ImagePath>C:\Users\Zoli\Documents\Images\SW4.jpg</ImagePath>
-	 <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW4.rtf</DescriptionPath>
-	 <DateAdded>2024-03-21T12:26:54.4737071+01:00</DateAdded>
+	 <Title>Star Wars 5 - The Empire Strikes Back</Title>
+	 <ImagePath>C:\Users\Zoli\Documents\Images\SW5.jpg</ImagePath>
+	 <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW5.rtf</DescriptionPath>
+	 <DateAdded>2024-03-21</DateAdded>
+  </Movie>
+  <Movie>
+	 <Rating>9.6</Rating>
+	 <Title>Star Wars 5 - The Empire Strikes Back</Title>
+	 <ImagePath>C:\Users\Zoli\Documents\Images\SW5.jpg</ImagePath>
+	 <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW5.rtf</DescriptionPath>
+	 <DateAdded>2024-03-21</DateAdded>
+  </Movie>
+  <Movie>
+	 <Rating>9.6</Rating>
+	 <Title>Star Wars 5 - The Empire Strikes Back</Title>
+	 <ImagePath>C:\Users\Zoli\Documents\Images\SW5.jpg</ImagePath>
+	 <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW5.rtf</DescriptionPath>
+	 <DateAdded>2024-03-21</DateAdded>
+  </Movie>
+  <Movie>
+	 <Rating>9.6</Rating>
+	 <Title>Star Wars 5 - The Empire Strikes Back</Title>
+	 <ImagePath>C:\Users\Zoli\Documents\Images\SW5.jpg</ImagePath>
+	 <DescriptionPath>C:\Users\Zoli\Documents\Descriptions\SW5.rtf</DescriptionPath>
+	 <DateAdded>2024-03-21</DateAdded>
   </Movie>
 </ArrayOfMovie>

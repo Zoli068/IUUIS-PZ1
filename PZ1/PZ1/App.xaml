@@ -25,6 +25,7 @@
        <!--#region ButtonStyle--> 
         <Style TargetType="{x:Type Button}">
 
+            
             <Setter
                Property="Foreground"
                Value="#FFE81F"/>

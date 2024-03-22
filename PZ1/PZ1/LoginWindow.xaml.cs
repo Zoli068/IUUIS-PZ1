@@ -47,7 +47,6 @@ namespace PZ1
 
             }
 
-
             InitializeComponent();
 
             //dev purpose
@@ -69,14 +68,14 @@ namespace PZ1
 
             if(LoginAttempt(userName, password))
             {
-                Hide();             //Hide the login window at successfull atempt
+                Hide();            
 
                 CMSWindow CMSWindow = new CMSWindow(LoggedInUser);
                 CMSWindow.ShowDialog();
 
                 RemoveLoginValues();
 
-                Show();             //When we return from the CMS then we start showing the login windows again
+                Show();            
             }
 
         }
@@ -92,7 +91,7 @@ namespace PZ1
         {
             this.UserNameTextBox.BorderBrush = Brushes.White;
             this.PasswordTextBox.BorderBrush = Brushes.White;
-            this.InvalidLoginAttemptLabel.Foreground = Brushes.White;
+            this.InvalidLoginAttemptLabel.Foreground = Brushes.Black;
         }
 
         private bool LoginAttempt(string userName, string password)
@@ -135,12 +134,12 @@ namespace PZ1
                     {
                         if (!user.Password.Equals(password))
                         {
-                            break;                  //Found the username but password didn't match
+                            break;                 
                         }
                         else
                         {
                             LoggedInUser = user;
-                            return true;            //Successfully logged in
+                            return true;           
                         }
                     }
                 }
@@ -151,7 +150,7 @@ namespace PZ1
                 this.InvalidLoginAttemptLabel.Content = "Invalid Username or Password ";
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
 
-                return false;                       //couldn't find an user with that username
+                return false;                    
             }
 
         }

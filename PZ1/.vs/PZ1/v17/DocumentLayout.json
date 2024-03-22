@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\cmswindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\pz1\\cmswindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\cmswindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\pz1\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\pz1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\pz1\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\bin\\Debug\\MovieCollection.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PZ1\\bin\\Debug\\MovieCollection.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\cmswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\cmswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\pz1\\loginwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\loginwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\cmswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\cmswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\pz1\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +46,122 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MovieCollection.xml",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\bin\\Debug\\MovieCollection.xml",
+              "RelativeDocumentMoniker": "PZ1\\bin\\Debug\\MovieCollection.xml",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\bin\\Debug\\MovieCollection.xml",
+              "RelativeToolTip": "PZ1\\bin\\Debug\\MovieCollection.xml",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAkwCQAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-03-21T23:47:53.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml",
+              "RelativeDocumentMoniker": "PZ1\\App.xaml",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml",
+              "RelativeToolTip": "PZ1\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-21T22:48:14.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml.cs",
+              "RelativeDocumentMoniker": "PZ1\\App.xaml.cs",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml.cs",
+              "RelativeToolTip": "PZ1\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T22:48:11.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "PZ1\\LoginWindow.xaml",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\LoginWindow.xaml",
+              "RelativeToolTip": "PZ1\\LoginWindow.xaml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-21T21:54:34.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CMSWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml.cs",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml.cs",
+              "RelativeToolTip": "PZ1\\CMSWindow.xaml.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAowFsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T14:31:20.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CMSWindow.xaml",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
+              "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
+              "RelativeToolTip": "PZ1\\CMSWindow.xaml",
+              "ViewState": "AQIAAPcAAAAAAAAAAAAAAAMBAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-21T14:09:15.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\Model\\Movie.cs",
+              "RelativeDocumentMoniker": "PZ1\\Model\\Movie.cs",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\Model\\Movie.cs",
+              "RelativeToolTip": "PZ1\\Model\\Movie.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAswD4AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T12:10:21.62Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "4f77cff4-1703-4f64-956a-381e72c454cd",
+        "Display": 0,
+        "X": 400,
+        "Y": 76,
+        "Width": 801,
+        "Height": 601,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "LoginWindow.xaml",
               "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\LoginWindow.xaml",
               "RelativeDocumentMoniker": "PZ1\\LoginWindow.xaml",
@@ -54,79 +173,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CMSWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml.cs",
-              "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml.cs",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml.cs",
-              "RelativeToolTip": "PZ1\\CMSWindow.xaml.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAABMAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T14:31:20.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\LoginWindow.xaml.cs",
-              "RelativeDocumentMoniker": "PZ1\\LoginWindow.xaml.cs",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\LoginWindow.xaml.cs",
-              "RelativeToolTip": "PZ1\\LoginWindow.xaml.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAkwEoAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T14:18:53.795Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml",
-              "RelativeDocumentMoniker": "PZ1\\App.xaml",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml",
-              "RelativeToolTip": "PZ1\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-21T13:57:59.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Movie.cs",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\Model\\Movie.cs",
-              "RelativeDocumentMoniker": "PZ1\\Model\\Movie.cs",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\Model\\Movie.cs",
-              "RelativeToolTip": "PZ1\\Model\\Movie.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAmwEAAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T12:10:21.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "CMSWindow.xaml",
               "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
               "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml",
               "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
               "RelativeToolTip": "PZ1\\CMSWindow.xaml",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAmwGsAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-21T14:09:15.947Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml.cs",
-              "RelativeDocumentMoniker": "PZ1\\App.xaml.cs",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\App.xaml.cs",
-              "RelativeToolTip": "PZ1\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T23:04:25.247Z",
+              "WhenOpened": "2024-03-21T22:08:37.064Z",
               "EditorCaption": ""
             }
           ]
