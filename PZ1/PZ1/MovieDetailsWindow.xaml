@@ -1,0 +1,153 @@
+﻿<Window x:Class="PZ1.MovieDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Title="MovieDetailsWindow" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Height="630"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Width="700">
+
+
+    <Border  
+        CornerRadius="25"
+        BorderThickness="1"
+        Background="Black"
+        DataContext="{Binding MovieDetail}"
+        BorderBrush="White">
+
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border 
+                CornerRadius="25,25,0,0"
+                Grid.ColumnSpan="2">
+
+                <Border.Background>
+                    <ImageBrush ImageSource="StarWarsSkyBackground2.jpg"/>
+                </Border.Background>
+
+                <Image  
+                        Margin="0,10,0,10"
+                        Grid.ColumnSpan="2"
+                        MaxWidth="650"
+                        Source="{Binding ImageUri}"/>
+
+            </Border>
+
+            <Grid 
+                Grid.Row="1"    
+                Grid.ColumnSpan="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label
+                 Grid.Row="0"
+                 Grid.ColumnSpan="2"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 BorderBrush="White"
+                 BorderThickness="0,1,0,1"
+                 Height="75"
+                 Width="700">
+
+                    <TextBlock
+                    MaxWidth="660"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap"
+                    FontSize="30"          
+                    Text="{Binding Title}"/>
+
+                </Label>
+
+                <RichTextBox 
+                    Margin="5"
+                    SelectionBrush="Transparent"
+                    AllowDrop="False"
+                    x:Name="RichTextBoxDescription"
+                    Background="Black"
+                    Grid.Row="1"
+                    BorderThickness="0"
+                    IsReadOnly="True"
+                    Grid.ColumnSpan="2"/>
+
+
+                <Border 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="2"
+                    BorderBrush="White"
+                    BorderThickness="0,1,0,1">
+                    <Grid>
+
+                        <StackPanel
+                            ToolTip="Rating of the movie (0-10)"
+                            Margin="13,0,0,0"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+
+                            <Label  FontSize="20" Content="Rating:"/>
+                            <Label  FontSize="20" Content="{Binding Rating}"/>
+                        </StackPanel>
+
+                        <StackPanel
+                            ToolTip="Movie got added on this date"
+                            Margin="0,0,13,0"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                            <Label FontSize="20" Content="Date:"/>
+                            <Label FontSize="20" Content="{Binding DateAdded}"/>
+
+                        </StackPanel>
+                        
+                    </Grid>
+                </Border>
+
+                <Button 
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    x:Name="ExitButton"
+                    Content="Exit"
+                    Click="ExitButton_Click"
+                    Height="40"
+                    ToolTip="Close the detailed view"
+                    FontSize="34"
+                    Width="130"/>
+                      
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

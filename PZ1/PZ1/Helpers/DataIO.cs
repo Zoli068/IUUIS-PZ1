@@ -29,9 +29,8 @@ namespace PZ1.Helpers
                     stream.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //Log exception here
             }
         }
 
@@ -63,7 +62,7 @@ namespace PZ1.Helpers
                     read.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Log exception here
             }

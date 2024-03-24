@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("moviesdata/moviecollection.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("starwarsskybackground2.jpg")]
 
 

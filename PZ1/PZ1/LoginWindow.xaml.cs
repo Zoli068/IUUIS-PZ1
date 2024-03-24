@@ -15,6 +15,8 @@ using FontAwesome5;
 using PZ1.Model;
 using PZ1.Helpers;
 using System.Threading;
+using Notification.Wpf.Constants;
+using System.IO;
 
 //Admin - admin123
 //Visitor - visitor123
@@ -34,6 +36,8 @@ namespace PZ1
 
         public List<User> AllUserCredentials { get { return allUserCredentials; } }
 
+        private double leftPosition=double.NaN, topPosition;
+
         public LoginWindow()
         {
             allUserCredentials = serializer.DeSerializeObject<List<User>>("UserCredentials.xml");
@@ -47,13 +51,14 @@ namespace PZ1
 
             }
 
+
             InitializeComponent();
 
-            //dev purpose
             this.UserNameTextBox.Text = "Admin";
             this.PasswordTextBox.Password = "admin123";
             LoginButton_Click(null, null);
-            //
+
+
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -71,11 +76,15 @@ namespace PZ1
                 Hide();            
 
                 CMSWindow CMSWindow = new CMSWindow(LoggedInUser);
+                CMSWindow.Owner = this;
                 CMSWindow.ShowDialog();
 
                 RemoveLoginValues();
+                
+                Show();
 
-                Show();            
+                this.Left = leftPosition; 
+                this.Top=topPosition;
             }
 
         }
@@ -96,7 +105,8 @@ namespace PZ1
 
         private bool LoginAttempt(string userName, string password)
         {
-            if(userName.Trim().Equals(string.Empty) && password.Length.Equals(0))
+
+            if (userName.Trim().Equals(string.Empty) && password.Length.Equals(0))
             {
                 RemoveErrorMessages();
                 this.UserNameTextBox.BorderBrush = Brushes.Red;
@@ -160,6 +170,12 @@ namespace PZ1
 
             FocusManager.SetFocusedElement(FocusManager.GetFocusScope(LoginButton), null);
             Keyboard.ClearFocus();
+            if (leftPosition.Equals(double.NaN))
+            {
+                leftPosition = this.Left;
+                topPosition = this.Top;
+            }
+
             this.DragMove();
         }
 

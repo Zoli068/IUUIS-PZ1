@@ -29,3 +29,7 @@ D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\P
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\CMSWindow.g.cs
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\CMSWindow.baml
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\App.baml
+D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDetailsWindow.g.cs
+D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDetailsWindow.baml
+D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDeleteApproval.g.cs
+D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDeleteApproval.baml

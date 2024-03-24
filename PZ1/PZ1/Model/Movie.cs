@@ -13,6 +13,7 @@ namespace PZ1.Model
         private string imagePath;
         private string descriptionPath;
         private bool isChecked;
+        private bool isOpened;
         public double Rating { get; set; }
         public string Title { get; set; }
         public string ImagePath
@@ -37,8 +38,9 @@ namespace PZ1.Model
 
             set
             {
-                descriptionPath = value;
-                DescriptionUri = new Uri(descriptionPath, UriKind.Absolute);
+                descriptionPath = @value;
+
+
             }
         }
 
@@ -46,9 +48,6 @@ namespace PZ1.Model
 
         [XmlIgnoreAttribute]
         public Uri ImageUri { get; set; }
-
-        [XmlIgnoreAttribute]
-        public Uri DescriptionUri { get; set; }
 
         [XmlIgnoreAttribute]
         public bool IsChecked
@@ -64,9 +63,25 @@ namespace PZ1.Model
             }
         }
 
+        [XmlIgnoreAttribute]
+        public bool IsOpened
+        {
+            get
+            {
+                return isOpened;
+            }
+
+            set
+            {
+                isOpened = value;
+            }
+        }
+        
+
         public Movie() 
         {
             IsChecked = false;
+            IsOpened = false;
         }
 
         public Movie(double rating ,string title, string imagePath, string descriptionPath, string dateAdded)
@@ -77,8 +92,7 @@ namespace PZ1.Model
             DescriptionPath = descriptionPath;
             DateAdded = dateAdded;
             IsChecked = false;
-
-            DescriptionUri = new Uri(DescriptionPath);
+            IsOpened = false;
         }
     }
 }

@@ -91,10 +91,25 @@
       <DependentUpon>CMSWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MovieDeleteApproval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MovieDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BooleanWrapper.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="MovieDeleteApproval.xaml.cs">
+      <DependentUpon>MovieDeleteApproval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MovieDetailsWindow.xaml.cs">
+      <DependentUpon>MovieDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -129,6 +144,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="StarWarsSkyBackground2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

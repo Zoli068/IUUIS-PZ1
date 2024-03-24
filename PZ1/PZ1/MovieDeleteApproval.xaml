@@ -1,0 +1,72 @@
+﻿<Window x:Class="PZ1.MovieDeleteApproval"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1"
+        WindowStartupLocation="CenterOwner"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Title="MovieDeleteApproval" Height="150" Width="380">
+
+    <Border
+        CornerRadius="25"
+        BorderThickness="1"
+        Background="Black"
+        BorderBrush="White">
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Label 
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                Margin="0,20,0,0">
+                
+                <TextBlock
+                Text="Are you sure you want to delete the selected items ?"
+                TextWrapping="Wrap"
+                FontSize="20"
+                TextAlignment="Center"/>
+
+            </Label>
+
+
+            <Button
+                x:Name="ApproveDelete"
+                Click="ApproveDelete_Click"
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="120"
+                FontSize="35"
+                Height="40"
+                Content="Yes"/>
+            
+            <Button
+                x:Name="CancelDelete"
+                Click="CancelDelete_Click"
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="120"
+                FontSize="35"
+                Height="40"
+                Content="No"/>
+
+        </Grid>
+        
+    </Border>
+    
+</Window>

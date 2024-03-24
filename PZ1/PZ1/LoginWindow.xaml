@@ -9,7 +9,8 @@
     xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
     mc:Ignorable="d"
     WindowStyle="None"
-    Title="LoginWindow" 
+    Title="LoginWindow"
+    WindowStartupLocation="CenterScreen"
     Height="450" 
     Width="340"
     ResizeMode="NoResize"
@@ -44,36 +45,36 @@
             <StackPanel Grid.Row="1">
 
                 <Label  
-                x:Name="UserNameLabel"
-                Content="Username"
-                FontSize="20"
-                Grid.Row="1"                        
-                Margin="10,20,0,5"
-                HorizontalAlignment="Left"/>
+                    x:Name="UserNameLabel"
+                    Content="Username"
+                    FontSize="20"
+                    Grid.Row="1"                        
+                    Margin="10,20,0,5"
+                    HorizontalAlignment="Left"/>
 
                 <StackPanel Orientation="Horizontal">
 
                     <fa5:SvgAwesome
-                    Icon="Regular_User"
-                    Foreground="#FFE81F"
-                    Height="30"
-                    Width="30"
-                    Margin="15,0,0,0"/>
+                        Icon="Regular_User"
+                        Foreground="#FFE81F"
+                        Height="30"
+                        Width="30"
+                        Margin="15,0,0,0"/>
 
                     <TextBox 
-                    x:Name="UserNameTextBox"
-                    KeyDown="UserNameTextBox_KeyDown"
-                    Grid.Row="1"
-                    FontSize="21"
-                    Height="30"
-                    Width="260"
-                    Margin="5,0,15,0"
-                    VerticalContentAlignment="Bottom"
+                        x:Name="UserNameTextBox"
+                        KeyDown="UserNameTextBox_KeyDown"
+                        Grid.Row="1"
+                        FontSize="21"
+                        Height="30"
+                        Width="260"
+                        Margin="5,0,15,0"
+                        VerticalContentAlignment="Bottom"
                            
-                    Foreground="#FFE81F"
-                    Background="Black"
-                    SelectionBrush="White"
-                    CaretBrush="#FFE81F"/>
+                        Foreground="#FFE81F"
+                        Background="Black"
+                        SelectionBrush="White"
+                        CaretBrush="#FFE81F"/>
 
                 </StackPanel>
             </StackPanel>
@@ -81,36 +82,36 @@
             <StackPanel Grid.Row="2">
 
                 <Label  
-                x:Name="PasswordLabel"
-                Content="Password"
-                FontSize="20"
-                Grid.Row="1"
-                Margin="13,10,0,5"
-                HorizontalAlignment="Left"/>
+                    x:Name="PasswordLabel"
+                    Content="Password"
+                    FontSize="20"
+                    Grid.Row="1"
+                    Margin="13,10,0,5"
+                    HorizontalAlignment="Left"/>
 
                 <StackPanel Orientation="Horizontal">
 
                     <fa5:SvgAwesome
-                    Icon="Solid_Key"
-                    Foreground="#FFE81F"
-                    Height="30"
-                    Width="30"
-                    Margin="15,0,0,0"/>
+                        Icon="Solid_Key"
+                        Foreground="#FFE81F"
+                        Height="30"
+                        Width="30"
+                        Margin="15,0,0,0"/>
 
                     <PasswordBox
-                    KeyDown="PasswordTextBox_KeyDown"
-                    x:Name="PasswordTextBox"
-                    Grid.Row="1"
-                    PasswordChar="*"
-                    FontSize="21"
-                    Height="30"
-                    Width="260"
-                    Margin="5,0,0,0"
-                    VerticalContentAlignment="Bottom"
-                    Background="Black"
-                    BorderBrush="White"
-                    Foreground="#FFE81F"
-                    CaretBrush="#FFE81F"/>
+                        KeyDown="PasswordTextBox_KeyDown"
+                        x:Name="PasswordTextBox"
+                        Grid.Row="1"
+                        PasswordChar="*"
+                        FontSize="21"
+                        Height="30"
+                        Width="260"
+                        Margin="5,0,0,0"
+                        VerticalContentAlignment="Bottom"
+                        Background="Black"
+                        BorderBrush="White"
+                        Foreground="#FFE81F"
+                        CaretBrush="#FFE81F"/>
 
                 </StackPanel>
 
@@ -126,22 +127,22 @@
             <StackPanel Grid.Row="3">
                 
                 <Button
-                x:Name="LoginButton"
-                Click="LoginButton_Click"
-                Content="Login"
-                FontSize="35"
-                Margin="0,5,0,0"
-                Height="50"
-                Width="200"/>
+                    x:Name="LoginButton"
+                    Click="LoginButton_Click"
+                    Content="Login"
+                    FontSize="35"
+                    Margin="0,5,0,0"
+                    Height="50"
+                    Width="200"/>
 
                 <Button
-                x:Name="ExitButton"
-                Content="Exit"
-                FontSize="14"
-                Height="20"
-                Width="70"
-                Margin="0,15,0,0"
-                Click="ExitButton_Click"/>
+                    x:Name="ExitButton"
+                    Content="Exit"
+                    FontSize="14"
+                    Height="20"
+                    Width="70"
+                    Margin="0,15,0,0"
+                    Click="ExitButton_Click"/>
 
             </StackPanel>
         </Grid>

@@ -1,12 +1,19 @@
 ﻿<Application x:Class="PZ1.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PZ1"
              StartupUri="LoginWindow.xaml">
     
     <Application.Resources>
 
-       <!--#region LabelStyle-->
+
+        <DropShadowEffect
+                x:Key="ClickedDropShadowEffect"
+                Direction="320"
+                Opacity="90"
+                ShadowDepth="3"
+                Color="#2E67F8" />
+
+        <!--#region LabelStyle-->
         
         <Style TargetType="{x:Type Label}">
 
@@ -78,7 +85,7 @@
             </Setter>
 
             <Style.Triggers>
-                
+
                 <Trigger 
                     Property="IsPressed" 
                     Value="True">
@@ -87,8 +94,21 @@
                         Property="Background" 
                         Value="#103CAB"/>
 
+                    <Setter
+                        Property="Effect"
+                        Value="{StaticResource ClickedDropShadowEffect}"/>
+
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.993" ScaleY="0.993"  />
+                        </Setter.Value>
+                    </Setter>
+                    
+                    
                 </Trigger>
-            
+
+
+
             </Style.Triggers>
             
         </Style>

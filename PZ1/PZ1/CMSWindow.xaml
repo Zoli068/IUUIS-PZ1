@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PZ1" xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:local="clr-namespace:PZ1" xmlns:fa5="http://schemas.fontawesome.com/icons/" xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
         mc:Ignorable="d"
         Title="CMSWindow"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True"
         Background="Transparent"
+        WindowStartupLocation="CenterOwner"
         Height="650"
         Width="1000"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
@@ -17,10 +18,20 @@
     <Canvas Height="650" 
             Width="1000">
 
+
+        <notifications:NotificationArea
+                            x:Name="CMSWindowNotificationArea"
+                            Panel.ZIndex="1000"
+                            MaxItems="1"
+                            Margin="320,10,0,0"
+                            Position="Center" />
+
+
         <Path
         Name="UIPath"
         Stroke="White"         
         StrokeThickness="1">
+
 
             <Path.Fill>
                 <ImageBrush ImageSource="StarWarsSkyBackground.png"/>
@@ -63,6 +74,7 @@
             
         </Path>
 
+        
         <StackPanel
             Margin="70,10,0,70">
 
@@ -74,6 +86,7 @@
                 Content="Star Wars Movies"/>
 
             <DataGrid  
+                x:Name="MoviesDataGrid"
                 Width="860" 
                 Height="510"
                 HeadersVisibility="Column"
@@ -89,6 +102,7 @@
                 VerticalScrollBarVisibility="Hidden"
                 FontFamily="FontFamily/#SF Distant Galaxy">
 
+                
 
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -113,12 +127,9 @@
                         </Style.Triggers>
                     </Style>
 
-
-                    
                 </DataGrid.Resources>
 
-                
-                
+
                 <DataGrid.Columns>
 
                     <DataGridTemplateColumn 
@@ -137,7 +148,7 @@
 
                                 <DataTemplate.Resources>
                                     <Style TargetType="{x:Type CheckBox}"  >
-                                        
+
                                         <Setter Property="LayoutTransform">
                                             <Setter.Value>
                                                 <ScaleTransform ScaleX="5" ScaleY="5" />
@@ -168,11 +179,11 @@
                                                             <Setter Property="BorderBrush" Value="White"/>
                                                             <Setter TargetName="CheckedIcon" Property="Visibility" Value="Collapsed" />
                                                         </Trigger>
-                                                        
+
                                                         <Trigger Property="IsMouseOver" Value="true">
                                                             <Setter Property="BorderBrush" Value="#103CAB" />
                                                         </Trigger>
-                                                        
+
 
                                                         <Trigger Property="IsChecked" Value="True">
                                                             <Setter Property="BorderBrush" Value="#103CAB" />
@@ -188,29 +199,55 @@
 
                                     </Style>
                                 </DataTemplate.Resources>
-                            
 
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-
-                    <DataGridTextColumn
+                    <DataGridTemplateColumn                    
                         Width="345.5"
-                        FontSize="20"    
-                        IsReadOnly="True"
-                        Header="Title"
-                        Binding="{Binding Title}">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style>
-                                <Setter Property="TextBox.TextWrapping" Value="Wrap" />
-                                <Setter Property="TextBox.TextAlignment" Value="Center"/>
-                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
-                                <Setter Property="TextBox.Margin" Value="5,0,5,0"/>
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
+                        Header="Title">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                     TextAlignment="Center"
+                                     VerticalAlignment="Center">
+                                    
+                                      <Hyperlink 
+                                        x:Name="TitleHyperLink"
+                                        Click="TitleHyperLink_Click"
+                                        TextDecorations="None">
+                                        
+                                          <TextBlock
+                                                Text="{Binding Title}"
+                                                FontSize="20"
+                                                TextWrapping="Wrap"
+
+                                                Margin="5,0,5,0">
+
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+
+                                                    <Setter Property="Foreground" Value="#FFE81F"/>
+
+                                                    <Style.Triggers>
+                                                        <Trigger  Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Foreground" Value="white"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                            
+                                              
+                                          </TextBlock>
+                                          
+                                     </Hyperlink>
+                              </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
                         
-                    </DataGridTextColumn>
+                    </DataGridTemplateColumn>
 
 
                     <DataGridTemplateColumn
@@ -256,18 +293,21 @@
 
                 <TextBlock
                     Foreground="Red"
-                    Text="No Movies Selected For Delete"
+                    x:Name="NoneSelectedErrorTextBlock"
+                    Text="No Movies Selected To Delete"
                     FontSize="17"
-                    FontFamily="FontFamily/#SF Distant Galaxy"
-                    Visibility="Visible"
+                    FontFamily="FontFamily/#Star jedi"
+                    Visibility="Hidden"
                     Background="Black"
-                    Margin="0,13,16,0"/>
+                    Margin="0,6,16,0">
+
+                </TextBlock>
 
 
                 <Button 
                     x:Name="NewMovieButton"
                     Content="New"
-                    ToolTip="Adding a new movie to the list"
+                    ToolTip="Add a new movie"
                     Height="40"
                     Width="130"
                     FontSize="34"
@@ -276,7 +316,7 @@
                 <Button 
                     x:Name="DeleteMovieButton"
                     Content="Delete"
-                    ToolTip="Delete movie from the list"
+                    ToolTip="Delete the selected movies"
                     Height="40"
                     Width="190"
                     FontSize="34"
@@ -288,7 +328,7 @@
                     Content="Exit"
                     Click="ExitButton_Click"
                     Height="40"
-                    ToolTip="Go back to Login"
+                    ToolTip="Go back to the Login"
                     FontSize="34"
                     Width="130"/>
 
