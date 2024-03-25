@@ -5,7 +5,7 @@
     
     <Application.Resources>
 
-
+        <!--#region Effects-->
         <DropShadowEffect
                 x:Key="ClickedDropShadowEffect"
                 Direction="320"
@@ -13,6 +13,8 @@
                 ShadowDepth="3"
                 Color="#2E67F8" />
 
+        <!--#endregion-->
+        
         <!--#region LabelStyle-->
         
         <Style TargetType="{x:Type Label}">
@@ -29,7 +31,7 @@
 
         <!--#endregion-->
         
-       <!--#region ButtonStyle--> 
+        <!--#region ButtonStyle--> 
         <Style TargetType="{x:Type Button}">
 
             
@@ -115,7 +117,7 @@
 
         <!--#endregion-->
         
-       <!--#region  TextBoxStyle -->
+        <!--#region  TextBoxStyle -->
         <Style TargetType="TextBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -188,7 +190,7 @@
         </Style>
         <!--#endregion-->
         
-       <!--#region PasswordBoxStyle-->
+        <!--#region PasswordBoxStyle-->
         <Style TargetType="PasswordBox">
             <Setter Property="Template">
                 <Setter.Value>

@@ -1,0 +1,484 @@
+﻿<Window x:Class="PZ1.AddOrEditingMovieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1" xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        mc:Ignorable="d"
+        Title="AddOrEditingMovieWindow" 
+        Height="600" 
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStyle="None"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStartupLocation="CenterOwner"
+        Width="700">
+
+
+    <Window.Resources>
+        <Style 
+            TargetType="ToggleButton"
+            x:Key="ToggleButtonStyle">
+
+            <Setter  
+                Property="Height" 
+                Value="20"/>
+            
+            <Setter 
+                Property="Width"
+                Value="20"/>
+
+            <Setter
+                Property="BorderBrush"
+                Value="White"/>
+
+            <Setter
+                Property="BorderThickness"
+                Value="1"/>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsChecked" Value="True">
+
+                    <Setter
+                        Property="Background"
+                        Value="#103CAB"/>
+
+                    <Setter
+                        Property="BorderBrush"
+                        Value="White"/>
+
+                </Trigger>
+
+            </Style.Triggers>
+            
+
+        </Style>
+    </Window.Resources>
+    
+    <Border
+        CornerRadius="25"
+        BorderThickness="1"
+        Background="Black"
+        BorderBrush="White">
+
+        
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+
+                <Label 
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Add a New Movie"
+                    FontSize="38"/>
+
+                <StackPanel
+                     Orientation="Vertical"
+                     Margin="10,0,10,0"
+                     VerticalAlignment="Center"
+                     Grid.Row="1">
+
+                        <Label
+                            FontSize="22"
+                            HorizontalAlignment="Left"
+                            Content="Title"/>
+                    
+                        <TextBox
+                            Width="388"
+                            FontFamily="FontFamily/#Star Jedi"
+                            Foreground="#FFE81F"
+                            FontSize="22"
+                            BorderThickness="1"
+                            HorizontalContentAlignment="Center"
+                            BorderBrush="White"        
+                            Background="Black"/>
+
+                        <Label 
+                            Content="Title Cannot Be Empty"
+                            HorizontalAlignment="Center"
+                            Foreground="Black"
+                            FontSize="12"/>
+
+                </StackPanel>
+
+
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="1">
+
+                    <Border
+                        BorderBrush="White"
+
+                        BorderThickness="1"
+                        Width="260"
+                        Margin="0,10,0,0"
+                        Height="163">
+
+                        <StackPanel
+                            IsEnabled="True"
+                            Drop="PreviewImage_Drop"
+                            AllowDrop="True">
+
+                            <TextBlock 
+                                Width="259"
+                                TextAlignment="Center"
+                                Height="153">
+                            
+                                <Image
+                                    x:Name="PreviewImage"
+                                    Margin="0,4"
+                                    Visibility="Collapsed"
+                                    Width="259"
+                                    Source="{Binding ImageSource}"
+                                    Height="143"/>
+                                
+                                <TextBlock
+                                    x:Name="PreviewImageDropArea"
+                                    Margin="0,60,0,0"
+                                    Width="160"
+                                    TextWrapping="Wrap"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    TextAlignment="Center"
+                                    FontFamily="FontFamily/#Star Jedi"
+                                    Foreground="#FFE81F">
+                        
+                                    Drop an image Here or 
+                        
+                                    <Hyperlink
+                                        TextDecorations="None"
+                                        Click="ImageSelectionButton_Click"> 
+                                        Choose one
+
+                                        <Hyperlink.Style>
+                                            
+                                            <Style TargetType="{x:Type Hyperlink}">
+                                                <Style.Triggers>
+                                                    
+                                                    <Trigger 
+                                                        Property="IsMouseOver"
+                                                        Value="True">
+                                            
+                                                        <Setter 
+                                                            Property="Foreground"
+                                                            Value="#103CAB"/>
+                                            
+                                                    </Trigger>
+                                        
+                                                    <Trigger 
+                                                        Property="IsMouseOver"
+                                                        Value="False">
+                                            
+                                                        <Setter 
+                                                            Property="Foreground"
+                                                            Value="#2E67F8"/>
+                                            
+                                                    </Trigger>
+                                                    
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Hyperlink.Style>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Border>
+
+                <Label
+                    x:Name="InvalidExtensionErrorLabel"
+                    Content="Invalid File Format"
+                    HorizontalAlignment="Center"
+                    Foreground="Black"
+                    Margin="0,2,0,0"
+                    FontSize="12"/>
+
+                <Button
+                        x:Name="ImageSelectionButton"
+                        Click="ImageSelectionButton_Click"
+                        FontSize="25"
+                        Margin="0,0,0,0"
+                        Width="220"
+                        Height="35"
+                        Content="Select Image"/>
+
+                </StackPanel>
+            
+            
+
+                <StackPanel
+                         Orientation="Vertical"
+                         Margin="10,0,10,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Grid.Row="2">
+
+                    <Label
+                        FontSize="22"
+                        HorizontalAlignment="Left"
+                        Content="Rating"/>
+
+                    <TextBox
+                        Width="269"
+                        FontFamily="FontFamily/#Star Jedi"
+                        Foreground="#FFE81F"
+                        FontSize="22"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Center"
+                        BorderThickness="1"
+                        BorderBrush="White"        
+                        Background="Black"/>
+
+                    <TextBlock 
+                        Text="Rating Must be in between 0 and 10"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        FontFamily="FontFamily/#Star Jedi"
+                        HorizontalAlignment="Center"
+                        Foreground="Black"
+                        FontSize="12"/>
+
+                </StackPanel>
+
+
+                <DockPanel   
+                    Grid.Row="3"
+                    Height="200"
+                    Margin="10,0,10,0"
+                    VerticalAlignment="Top"
+                    Grid.ColumnSpan="2">
+                    
+                    <ToolBar
+                        Name="EditorToolBar"
+                        Height="28"
+                        
+                        Margin="0,5,0,8"
+                        Background="#2E67F8"
+                        ToolBarTray.IsLocked="True"
+                        ToolBar.OverflowMode="Never"
+                        Loaded="EditorToolBar_Loaded"
+                        DockPanel.Dock="Top">
+
+                            <ToggleButton
+                                Margin="3,0,0,0"
+                                Style="{StaticResource ToggleButtonStyle}"
+                                Name="BoldToggleButton"
+                                Command="EditingCommands.ToggleBold"
+                                ToolTip="Bold">
+                            
+                                <fa5:SvgAwesome
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Foreground="#FFE81F"
+                                    Icon="Solid_Bold"
+                                    />
+
+                            </ToggleButton>
+
+                            <ToggleButton
+                                Margin="5,0,0,0"
+                                Style="{StaticResource ToggleButtonStyle}"
+                                Name="ItalicToggleButton"
+                                Command="EditingCommands.ToggleItalic"
+                                ToolTip="Italic">
+
+                                <fa5:SvgAwesome
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Foreground="#FFE81F"
+                                    Icon="Solid_Italic"
+                                    />
+
+                            </ToggleButton>
+
+
+                            <ToggleButton
+                                    Margin="5,0,0,0"
+                                    Style="{StaticResource ToggleButtonStyle}"
+                                    Name="UnderLineToggleButton"
+                                    Command="EditingCommands.ToggleUnderline"
+                                    ToolTip="Underline">
+
+                                <fa5:SvgAwesome
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Foreground="#FFE81F"
+                                        Icon="Solid_Underline"
+                                        />
+
+                            </ToggleButton>
+
+                        <Separator 
+                                Background="White" 
+                                Margin="5,0,5,0" />
+
+                            <Border
+                                Width="60"
+                                Focusable="False"
+                                BorderThickness="1"
+                                BorderBrush="White">
+
+                                    <TextBox
+                                        x:Name="FontSizeTextBox"
+                                        FontSize="13"
+                                        Margin="0,-1,0,0"
+                                        BorderThickness="0"
+                                        Foreground="#FFE81F"
+                                        Background="Transparent"
+                                        LostKeyboardFocus="FontSizeTextBox_LostKeyboardFocus"
+                                        TextAlignment="Right"
+                                        VerticalContentAlignment="Top"
+                                        TextWrapping="WrapWithOverflow"
+                                        FontFamily="FontFamily/#Star Jedi"
+                                        TextChanged="FontSizeTextBox_LostFocus"
+                                        />
+                                
+                            </Border>
+
+
+                            <Separator 
+                                Background="White" 
+                                Margin="5,0,5,0" />
+
+
+                            <Border
+                                BorderBrush="White"
+                                BorderThickness="1">
+                        
+                                <Border
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Height="15"  
+                                    HorizontalAlignment="Left"
+                                    Width="70"
+                                    Margin="3,0">
+
+                                    <Rectangle
+                                        x:Name="FontColorSample"
+                                        Fill="{Binding FontColor}">
+
+                                    </Rectangle> 
+                                
+                                </Border>
+                            
+                            </Border>
+
+                                <ComboBox
+                                    x:Name="FontColorComboBox"
+                                    Height="23"
+                                    ToolTip="Select The Font Color"
+                                    Width="150"
+                                    FontSize="13"
+                                    Margin="-1,0,3,0"
+                                    BorderThickness="1"
+                                    BorderBrush="White"
+                                    FontFamily="FontFamily/#SF Distant Galaxy"
+                                    Background="#2E67F8"
+                                    Foreground="#FFE81F"
+                                    IsTextSearchEnabled="True"
+                                    IsTextSearchCaseSensitive="False"
+                                    SelectionChanged="FontColorComboBox_SelectionChanged"
+                                    ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+
+                                 <ComboBox
+                                    Margin="2,0,0,0"
+                                    x:Name="FontFamilyComboBox"
+                                    Width="220"
+                                    ToolTip="Select The Font Family"
+                                    Height="23"
+                                    FontSize="13"
+                                    Focusable="False"
+                                    Background="#2E67F8"
+                                    FontFamily="FontFamily/#SF Distant Galaxy"
+                                    Foreground="#FFE81F"
+                                    IsTextSearchEnabled="True"
+                                    IsTextSearchCaseSensitive="False"
+                                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                    SelectionChanged="FontFamilyComboBox_SelectionChanged"/>
+
+
+                            <Separator 
+                                Background="White" 
+                                Margin="5,0,0,0" />
+
+                                    <Button
+                                        x:Name="UndoButton"
+                                        Click="UndoButton_Click"
+                                        BorderBrush="White"
+                                        Background="Transparent"
+                                        ToolTip="Undo"
+                                        BorderThickness="1"
+                                        Margin="5,0,0,0">
+
+
+
+                                        <fa5:SvgAwesome
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Foreground="#FFE81F"
+                                            Icon="Solid_UndoAlt"
+                                            />
+                                      
+                                    </Button>
+
+
+                                    <Button
+                                        x:Name="RedoButton"
+                                        Click="RedoButton_Click"
+                                        BorderBrush="White"
+                                        Background="Transparent"
+                                        ToolTip="Redo"
+                                        BorderThickness="1"
+                                        Margin="5,0,0,0">
+
+                                         <fa5:SvgAwesome
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Foreground="#FFE81F"
+                                            MaxHeight="24"
+                                            Icon="Solid_RedoAlt"
+                                            />
+
+                                    </Button>
+
+                    </ToolBar>
+
+
+                    <RichTextBox      
+                        PreviewKeyDown="RichTextBox_PreviewKeyDown"
+                        Background="Black"
+                        x:Name="RichTextBox"
+                               />
+                    
+                </DockPanel>
+
+
+
+
+            
+
+
+        </Grid>
+        
+        
+        
+    </Border>
+
+    
+</Window>

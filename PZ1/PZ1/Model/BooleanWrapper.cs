@@ -13,6 +13,5 @@ namespace PZ1.Model
         public BooleanWrapper() { }
 
         public Boolean Value { get; set; }
-
     }
 }

@@ -54,10 +54,11 @@ namespace PZ1
 
             InitializeComponent();
 
+
+            //delete after dev
             this.UserNameTextBox.Text = "Admin";
             this.PasswordTextBox.Password = "admin123";
             LoginButton_Click(null, null);
-
 
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -67,6 +68,8 @@ namespace PZ1
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            //Delete after dev
+            Show();
 
             string userName = this.UserNameTextBox.Text;
             string password = this.PasswordTextBox.Password.ToString();

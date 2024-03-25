@@ -307,6 +307,7 @@
                 <Button 
                     x:Name="NewMovieButton"
                     Content="New"
+                    Click="NewMovieButton_Click"
                     ToolTip="Add a new movie"
                     Height="40"
                     Width="130"

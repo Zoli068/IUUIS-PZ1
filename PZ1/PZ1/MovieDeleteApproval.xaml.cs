@@ -39,5 +39,10 @@ namespace PZ1
             confirmation.Value = true;
             this.Close();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

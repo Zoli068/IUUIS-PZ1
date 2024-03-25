@@ -259,5 +259,13 @@ namespace PZ1
             }
 
         }
+
+        private void NewMovieButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            AddOrEditingMovieWindow addOrEditingMovieWindow = new AddOrEditingMovieWindow();
+            addOrEditingMovieWindow.Owner = this;
+            addOrEditingMovieWindow.Show(); 
+        }
     }
 }
