@@ -56,14 +56,14 @@
 
         </Style>
     </Window.Resources>
-    
+
     <Border
         CornerRadius="25"
         BorderThickness="1"
         Background="Black"
         BorderBrush="White">
 
-        
+
         <Grid>
 
             <Grid.RowDefinitions>
@@ -79,7 +79,7 @@
             </Grid.ColumnDefinitions>
 
 
-                <Label 
+            <Label 
                     Grid.Row="0"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Center"
@@ -87,18 +87,18 @@
                     Content="Add a New Movie"
                     FontSize="38"/>
 
-                <StackPanel
+            <StackPanel
                      Orientation="Vertical"
                      Margin="10,0,10,0"
                      VerticalAlignment="Center"
                      Grid.Row="1">
 
-                        <Label
+                <Label
                             FontSize="22"
                             HorizontalAlignment="Left"
                             Content="Title"/>
-                    
-                        <TextBox
+
+                <TextBox
                             Width="388"
                             FontFamily="FontFamily/#Star Jedi"
                             Foreground="#FFE81F"
@@ -108,21 +108,21 @@
                             BorderBrush="White"        
                             Background="Black"/>
 
-                        <Label 
+                <Label 
                             Content="Title Cannot Be Empty"
                             HorizontalAlignment="Center"
                             Foreground="Black"
                             FontSize="12"/>
 
-                </StackPanel>
+            </StackPanel>
 
 
-                <StackPanel
+            <StackPanel
                     Grid.Row="1"
                     Grid.RowSpan="2"
                     Grid.Column="1">
 
-                    <Border
+                <Border
                         BorderBrush="White"
 
                         BorderThickness="1"
@@ -130,12 +130,12 @@
                         Margin="0,10,0,0"
                         Height="163">
 
-                        <StackPanel
+                    <StackPanel
                             IsEnabled="True"
                             Drop="PreviewImage_Drop"
                             AllowDrop="True">
 
-                            <TextBlock 
+                        <TextBlock 
                                 Width="259"
                                 TextAlignment="Center"
                                 Height="153">
@@ -152,6 +152,7 @@
                                     x:Name="PreviewImageDropArea"
                                     Margin="0,60,0,0"
                                     Width="160"
+                                    FontSize="13"
                                     TextWrapping="Wrap"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -197,9 +198,9 @@
                                     </Hyperlink>
                                 </TextBlock>
                             </TextBlock>
-                        </StackPanel>
+                    </StackPanel>
 
-                    </Border>
+                </Border>
 
                 <Label
                     x:Name="InvalidExtensionErrorLabel"
@@ -218,23 +219,23 @@
                         Height="35"
                         Content="Select Image"/>
 
-                </StackPanel>
-            
-            
+            </StackPanel>
 
-                <StackPanel
+
+
+            <StackPanel
                          Orientation="Vertical"
                          Margin="10,0,10,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Center"
                          Grid.Row="2">
 
-                    <Label
+                <Label
                         FontSize="22"
                         HorizontalAlignment="Left"
                         Content="Rating"/>
 
-                    <TextBox
+                <TextBox
                         Width="269"
                         FontFamily="FontFamily/#Star Jedi"
                         Foreground="#FFE81F"
@@ -245,7 +246,7 @@
                         BorderBrush="White"        
                         Background="Black"/>
 
-                    <TextBlock 
+                <TextBlock 
                         Text="Rating Must be in between 0 and 10"
                         TextWrapping="Wrap"
                         TextAlignment="Center"
@@ -254,17 +255,17 @@
                         Foreground="Black"
                         FontSize="12"/>
 
-                </StackPanel>
+            </StackPanel>
 
 
-                <DockPanel   
+            <DockPanel   
                     Grid.Row="3"
                     Height="200"
                     Margin="10,0,10,0"
                     VerticalAlignment="Top"
                     Grid.ColumnSpan="2">
-                    
-                    <ToolBar
+
+                <ToolBar
                         Name="EditorToolBar"
                         Height="28"
                         
@@ -275,93 +276,93 @@
                         Loaded="EditorToolBar_Loaded"
                         DockPanel.Dock="Top">
 
-                            <ToggleButton
+                    <ToggleButton
                                 Margin="3,0,0,0"
                                 Style="{StaticResource ToggleButtonStyle}"
                                 Name="BoldToggleButton"
                                 Command="EditingCommands.ToggleBold"
                                 ToolTip="Bold">
-                            
-                                <fa5:SvgAwesome
+
+                        <fa5:SvgAwesome
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center"
                                     Foreground="#FFE81F"
                                     Icon="Solid_Bold"
                                     />
 
-                            </ToggleButton>
+                    </ToggleButton>
 
-                            <ToggleButton
+                    <ToggleButton
                                 Margin="5,0,0,0"
                                 Style="{StaticResource ToggleButtonStyle}"
                                 Name="ItalicToggleButton"
                                 Command="EditingCommands.ToggleItalic"
                                 ToolTip="Italic">
 
-                                <fa5:SvgAwesome
+                        <fa5:SvgAwesome
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center"
                                     Foreground="#FFE81F"
                                     Icon="Solid_Italic"
                                     />
 
-                            </ToggleButton>
+                    </ToggleButton>
 
 
-                            <ToggleButton
+                    <ToggleButton
                                     Margin="5,0,0,0"
                                     Style="{StaticResource ToggleButtonStyle}"
                                     Name="UnderLineToggleButton"
                                     Command="EditingCommands.ToggleUnderline"
                                     ToolTip="Underline">
 
-                                <fa5:SvgAwesome
+                        <fa5:SvgAwesome
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
                                         Foreground="#FFE81F"
                                         Icon="Solid_Underline"
                                         />
 
-                            </ToggleButton>
+                    </ToggleButton>
 
-                        <Separator 
+                    <Separator 
                                 Background="White" 
                                 Margin="5,0,5,0" />
 
-                            <Border
+                    <Border
                                 Width="60"
                                 Focusable="False"
                                 BorderThickness="1"
                                 BorderBrush="White">
 
-                                    <TextBox
+                        <TextBox
                                         x:Name="FontSizeTextBox"
                                         FontSize="13"
                                         Margin="0,-1,0,0"
                                         BorderThickness="0"
                                         Foreground="#FFE81F"
                                         Background="Transparent"
-                                        LostKeyboardFocus="FontSizeTextBox_LostKeyboardFocus"
                                         TextAlignment="Right"
                                         VerticalContentAlignment="Top"
                                         TextWrapping="WrapWithOverflow"
                                         FontFamily="FontFamily/#Star Jedi"
-                                        TextChanged="FontSizeTextBox_LostFocus"
+                                        TextChanged="FontSizeTextBox_TextChanged"
+                                        LostKeyboardFocus="FontSizeTextBox_LostKeyboardFocus"
                                         />
-                                
-                            </Border>
+
+                    </Border>
 
 
-                            <Separator 
+                    <Separator 
                                 Background="White" 
                                 Margin="5,0,5,0" />
 
 
-                            <Border
+                    <Border
                                 BorderBrush="White"
                                 BorderThickness="1">
-                        
-                                <Border
+
+                        <Border
                                     BorderBrush="White"
                                     BorderThickness="1"
                                     Height="15"  
@@ -369,17 +370,17 @@
                                     Width="70"
                                     Margin="3,0">
 
-                                    <Rectangle
+                            <Rectangle
                                         x:Name="FontColorSample"
                                         Fill="{Binding FontColor}">
 
-                                    </Rectangle> 
-                                
-                                </Border>
-                            
-                            </Border>
+                            </Rectangle>
 
-                                <ComboBox
+                        </Border>
+
+                    </Border>
+
+                    <ComboBox
                                     x:Name="FontColorComboBox"
                                     Height="23"
                                     ToolTip="Select The Font Color"
@@ -393,10 +394,11 @@
                                     Foreground="#FFE81F"
                                     IsTextSearchEnabled="True"
                                     IsTextSearchCaseSensitive="False"
+                                    LostFocus="FontColorComboBox_LostFocus"
                                     SelectionChanged="FontColorComboBox_SelectionChanged"
                                     ScrollViewer.VerticalScrollBarVisibility="Hidden" />
 
-                                 <ComboBox
+                    <ComboBox
                                     Margin="2,0,0,0"
                                     x:Name="FontFamilyComboBox"
                                     Width="220"
@@ -409,15 +411,16 @@
                                     Foreground="#FFE81F"
                                     IsTextSearchEnabled="True"
                                     IsTextSearchCaseSensitive="False"
+                                    LostFocus="FontFamilyComboBox_LostFocus"
                                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                     SelectionChanged="FontFamilyComboBox_SelectionChanged"/>
 
 
-                            <Separator 
+                    <Separator 
                                 Background="White" 
                                 Margin="5,0,0,0" />
 
-                                    <Button
+                    <Button
                                         x:Name="UndoButton"
                                         Click="UndoButton_Click"
                                         BorderBrush="White"
@@ -428,17 +431,17 @@
 
 
 
-                                        <fa5:SvgAwesome
+                        <fa5:SvgAwesome
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
                                             Foreground="#FFE81F"
                                             Icon="Solid_UndoAlt"
                                             />
-                                      
-                                    </Button>
+
+                    </Button>
 
 
-                                    <Button
+                    <Button
                                         x:Name="RedoButton"
                                         Click="RedoButton_Click"
                                         BorderBrush="White"
@@ -447,7 +450,7 @@
                                         BorderThickness="1"
                                         Margin="5,0,0,0">
 
-                                         <fa5:SvgAwesome
+                        <fa5:SvgAwesome
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
                                             Foreground="#FFE81F"
@@ -455,30 +458,23 @@
                                             Icon="Solid_RedoAlt"
                                             />
 
-                                    </Button>
+                    </Button>
 
-                    </ToolBar>
+                </ToolBar>
 
 
-                    <RichTextBox      
+                <RichTextBox   
+                        BorderBrush="White"
                         PreviewKeyDown="RichTextBox_PreviewKeyDown"
                         Background="Black"
+                        Foreground="{Binding FontColor}"
+                        SelectionChanged="RichTextBox_SelectionChanged"
                         x:Name="RichTextBox"
                                />
-                    
-                </DockPanel>
 
-
-
-
-            
+            </DockPanel>
 
 
         </Grid>
-        
-        
-        
     </Border>
-
-    
 </Window>
