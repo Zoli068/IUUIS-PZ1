@@ -465,10 +465,9 @@
 
                 <RichTextBox   
                         BorderBrush="White"
+                        SelectionChanged="RichTextBox_SelectionChanged"
                         PreviewKeyDown="RichTextBox_PreviewKeyDown"
                         Background="Black"
-                        Foreground="{Binding FontColor}"
-                        SelectionChanged="RichTextBox_SelectionChanged"
                         x:Name="RichTextBox"
                                />
 

@@ -33,9 +33,9 @@ namespace PZ1
         private string imagePath;
 
         //default values
-        private int fontSize = 16;                                 
-        private FontFamily fontFamily = new FontFamily("Calibri");
-        private string font_Color = "White";
+        private int defaultFontSize = 16;                                 
+        private FontFamily defaultFontFamily = new FontFamily("Calibri");
+        private string defaultFontColor = "White";
 
         //def value too but in Brush
         private Brush fontColor;
@@ -52,14 +52,15 @@ namespace PZ1
         {
 
             FontFamilyComboBox.ItemsSource = System.Windows.Media.Fonts.SystemFontFamilies.OrderBy(f => f.Source);
-            FontFamilyComboBox.SelectedValue = fontFamily;
+            FontFamilyComboBox.SelectedValue = defaultFontFamily;
 
             var values = typeof(Brushes).GetProperties().Select(p =>  p.Name).ToArray();
             FontColorComboBox.ItemsSource = values;
 
-            FontColorComboBox.SelectedValue = font_Color;
-            RichTextBox.Foreground = Brushes.White;
-            FontSizeTextBox.Text = fontSize.ToString();
+            FontColorComboBox.SelectedValue = defaultFontColor;
+            fontColor = Brushes.White;
+            RichTextBox.Foreground = fontColor;
+            FontSizeTextBox.Text = defaultFontSize.ToString();
 
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
@@ -77,7 +78,6 @@ namespace PZ1
             set
             {
                 fontColor = value;
-                FontColorComboBox.SelectedItem = fontColor;
                 OnPropertyChanged();
             }
         }
@@ -223,10 +223,11 @@ namespace PZ1
             FocusManager.SetFocusedElement(FocusManager.GetFocusScope(this.FontFamilyComboBox), null);
         }
 
+
         private void FontSizeTextBox_TextChanged(object sender, RoutedEventArgs e)
         {
 
-            int value;
+           int value;
 
            if(int.TryParse(FontSizeTextBox.Text, out value))
             {
@@ -243,7 +244,7 @@ namespace PZ1
                     {
                         FontSize = fontValue;
 
-                        fontSize = int.Parse(fontValue.ToString());
+                        defaultFontSize = int.Parse(fontValue.ToString());
                         RichTextBox.FontSize = fontValue;
                         FontSizeTextBox.Text = FontSize.ToString();
                     }
@@ -251,17 +252,17 @@ namespace PZ1
                 }
                 else
                 {
-                    FontSizeTextBox.Text = fontSize.ToString();
+                    FontSizeTextBox.Text = defaultFontSize.ToString();
                 }
             
             }
             else
             {
-                FontSizeTextBox.Text = fontSize.ToString();
+                FontSizeTextBox.Text = defaultFontSize.ToString();
             }
 
-
         }
+
 
         private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -269,57 +270,67 @@ namespace PZ1
             if (FontFamilyComboBox.SelectedItem != null && !RichTextBox.Selection.IsEmpty)
             {
                 RichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyComboBox.SelectedItem);
-            
+                
+                if(!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length-1).Equals(' '))
+                {
+                    TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
+
+                    textRange.Text = " ";
+
+                    textRange.ApplyPropertyValue(FontFamilyProperty, defaultFontFamily);
+                }
 
             }
 
-            if (FontFamilyComboBox.SelectedItem == null && !RichTextBox.Selection.IsEmpty)
+            if (FontFamilyComboBox.SelectedItem != null && RichTextBox.Selection.IsEmpty)
             {
-                fontFamily = FontFamilyComboBox.SelectedItem as FontFamily;
-                RichTextBox.FontFamily = fontFamily;
+                defaultFontFamily = FontFamilyComboBox.SelectedItem as FontFamily;
+                RichTextBox.FontFamily = defaultFontFamily;
             }
 
 
         }
+
 
         private void FontColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-                FontColor = (Brush)new BrushConverter().ConvertFromString(FontColorComboBox.SelectedValue.ToString());
+                 FontColor = (Brush)new BrushConverter().ConvertFromString(FontColorComboBox.SelectedItem.ToString());
 
                 if (FontColorComboBox.SelectedItem != null && !RichTextBox.Selection.IsEmpty)
                 {
-                    TextRange tr=new TextRange(RichTextBox.Selection.Start, RichTextBox.Selection.End);
-                    tr.ApplyPropertyValue(ForegroundProperty, FontColor);
 
-                if( RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.ToString().Length - 1)!=' ')
-                {
-                   RichTextBox.Text     // adding space at the end
+                    RichTextBox.Selection.ApplyPropertyValue(Inline.ForegroundProperty, FontColor);
+
+                   if(!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length - 1).Equals(' '))
+                   {
+
+                            TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
+
+                            textRange.Text = " ";
+
+                            textRange.ApplyPropertyValue(ForegroundProperty, (Brush)new BrushConverter().ConvertFromString(defaultFontColor));         
+                            
+                   }
+
                 }
-
-            }
                 else if(FontColorComboBox.SelectedItem!=null && RichTextBox.Selection.IsEmpty)
                 {
-                    fontColor = FontColor;
-                    font_Color = FontColorComboBox.SelectedValue.ToString();
+                    defaultFontColor = FontColorComboBox.SelectedItem.ToString();
+                    RichTextBox.Foreground = FontColor;
                 }
 
-
-
         }
 
-
-        private void RichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
-          {
-            if (RichTextBox.Selection.IsEmpty)
+            private void RichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
             {
-                FontColorComboBox.SelectedItem = font_Color;
-                FontColor = (Brush)new BrushConverter().ConvertFromString(font_Color);
-                FontFamilyComboBox.SelectedItem = fontFamily;
-                FontSizeTextBox.Text = FontSize.ToString();
+                if (RichTextBox.Selection.IsEmpty)
+                {
+                    FontColorComboBox.SelectedItem = defaultFontColor;
+                    FontSizeTextBox.Text = defaultFontSize.ToString();
+                    FontFamilyComboBox.SelectedItem = defaultFontFamily;
+                }
             }
-        }
-
 
     }
 }
