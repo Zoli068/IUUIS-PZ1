@@ -7,16 +7,15 @@
 
         <!--#region Effects-->
         <DropShadowEffect
-                x:Key="ClickedDropShadowEffect"
-                Direction="320"
                 Opacity="90"
                 ShadowDepth="3"
-                Color="#2E67F8" />
-
+                Color="#2E67F8"
+                x:Key="ClickedDropShadowEffect"
+                Direction="320"/>
         <!--#endregion-->
         
         <!--#region LabelStyle-->
-        
+
         <Style TargetType="{x:Type Label}">
 
             <Setter 
@@ -28,13 +27,11 @@
                Value="FontFamily/#SF Distant Galaxy"/>
 
         </Style>
-
         <!--#endregion-->
         
-        <!--#region ButtonStyle--> 
+        <!--#region ButtonStyle-->
         <Style TargetType="{x:Type Button}">
 
-            
             <Setter
                Property="Foreground"
                Value="#FFE81F"/>
@@ -87,7 +84,6 @@
             </Setter>
 
             <Style.Triggers>
-
                 <Trigger 
                     Property="IsPressed" 
                     Value="True">
@@ -105,16 +101,11 @@
                             <ScaleTransform ScaleX="0.993" ScaleY="0.993"  />
                         </Setter.Value>
                     </Setter>
-                    
-                    
+
                 </Trigger>
-
-
-
             </Style.Triggers>
-            
-        </Style>
 
+        </Style>
         <!--#endregion-->
         
         <!--#region  TextBoxStyle -->
@@ -122,22 +113,22 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
-                        
+
                         <Border 
                             x:Name="border"
+                            SnapsToDevicePixels="True"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             Background="{TemplateBinding Background}"
-                            SnapsToDevicePixels="True"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                            
+
                             <ScrollViewer 
-                                x:Name="PART_ContentHost" 
-                                Focusable="false" 
-                                HorizontalScrollBarVisibility="Hidden" 
-                                VerticalScrollBarVisibility="Hidden"/>
-                        
+                            x:Name="PART_ContentHost" 
+                            Focusable="false" 
+                            HorizontalScrollBarVisibility="Hidden" 
+                            VerticalScrollBarVisibility="Hidden"/>
+
                         </Border>
-                       
+
                         <ControlTemplate.Triggers>
 
                             <Trigger 
@@ -148,9 +139,9 @@
                                     Property="Opacity" 
                                     TargetName="border" 
                                     Value="0.56"/>
-                                
+
                             </Trigger>
-                            
+
                             <Trigger 
                                 Property="IsMouseOver" 
                                 Value="True">
@@ -186,7 +177,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
         </Style>
         <!--#endregion-->
         
@@ -204,10 +194,10 @@
                             BorderThickness="{TemplateBinding BorderThickness}">
 
                             <ScrollViewer 
-                                x:Name="PART_ContentHost" 
-                                Focusable="false" 
-                                HorizontalScrollBarVisibility="Hidden" 
-                                VerticalScrollBarVisibility="Hidden"/>
+                            x:Name="PART_ContentHost" 
+                            Focusable="false" 
+                            HorizontalScrollBarVisibility="Hidden" 
+                            VerticalScrollBarVisibility="Hidden"/>
 
                         </Border>
 
@@ -262,7 +252,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <!--#endregion-->
         
     </Application.Resources>

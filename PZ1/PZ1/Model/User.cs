@@ -23,18 +23,18 @@ namespace PZ1.Model
 
         public String UserName { get; set; }
         public UserRole Role { get; set; }
-
         public string Password { get; set; }
 
         public User()
         {
 
         }
+
         public User(string userName, UserRole role,string password)
         {
             UserName = userName;
-            Role = role;
             Password = password;
+            Role = role;
         }
 
         public bool CheckPassword(string password) 
@@ -48,7 +48,5 @@ namespace PZ1.Model
                 return false;
             }
         }
-
-
     }
 }

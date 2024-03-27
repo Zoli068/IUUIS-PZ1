@@ -8,12 +8,12 @@
     xmlns:local="clr-namespace:PZ1" 
     xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
     mc:Ignorable="d"
-    WindowStyle="None"
     Title="LoginWindow"
-    WindowStartupLocation="CenterScreen"
     Height="450" 
     Width="340"
+    WindowStyle="None"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
     AllowsTransparency="True"
     Background="Transparent">
@@ -24,7 +24,7 @@
         Background="Black"
         BorderBrush="White">
 
-        <Grid  x:Name="grid1">
+        <Grid>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -34,21 +34,21 @@
             </Grid.RowDefinitions>
 
             <Label
-                x:Name="LoginTitleLabel"
                 Grid.Row="0"
+                x:Name="LoginTitleLabel"
+                Content="Login"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Margin="0,35,0,0"
-                Content="Login"
                 FontSize="55"/>
 
             <StackPanel Grid.Row="1">
 
                 <Label  
+                    Grid.Row="1"                        
                     x:Name="UserNameLabel"
                     Content="Username"
                     FontSize="20"
-                    Grid.Row="1"                        
                     Margin="10,20,0,5"
                     HorizontalAlignment="Left"/>
 
@@ -69,8 +69,7 @@
                         Height="30"
                         Width="260"
                         Margin="5,0,15,0"
-                        VerticalContentAlignment="Bottom"
-                           
+                        VerticalContentAlignment="Bottom" 
                         Foreground="#FFE81F"
                         Background="Black"
                         SelectionBrush="White"

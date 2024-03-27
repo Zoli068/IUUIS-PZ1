@@ -87,7 +87,7 @@ namespace PZ1
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            NoneSelectedErrorTextBlock.Visibility = System.Windows.Visibility.Hidden;
+           // NoneSelectedErrorTextBlock.Visibility = System.Windows.Visibility.Hidden;
 
             dispatcherTimer.IsEnabled = false;
         }
@@ -98,6 +98,9 @@ namespace PZ1
 
                 this.DeleteMovieButton.Visibility = Visibility.Hidden;
                 this.NewMovieButton.Visibility = Visibility.Hidden;
+                this.CheckBoxColumn.Visibility = Visibility.Hidden;
+                this.ImageColumn.Width = 317;
+                this.TitleColumn.Width = 395.5;
             }
         }
 
@@ -111,9 +114,18 @@ namespace PZ1
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
 
-            //saving the movies back to the xml
-            //checking are other windows are still openned ?
+            BooleanWrapper booleanWrapper = new BooleanWrapper();
 
+            ApprovalWindow exitApprovalWindow = new ApprovalWindow(booleanWrapper, "Are you sure you want to logout?");
+
+            exitApprovalWindow.ShowDialog();
+
+            if (booleanWrapper.Value == false)
+            {
+                return;
+            }
+
+            serializer.SerializeObject<ObservableCollection<Movie>>(Movies, "MovieCollection.xml");
 
             Close();
         }
@@ -125,8 +137,8 @@ namespace PZ1
 
             //If we got error, but after that the user select some item
             //then we can hide the error
-            this.NoneSelectedErrorTextBlock.Visibility = Visibility.Hidden;
-            dispatcherTimer.IsEnabled = false;
+            //this.NoneSelectedErrorTextBlock.Visibility = Visibility.Hidden;
+            //dispatcherTimer.IsEnabled = false;
 
 
             if ( movie.IsChecked == false)
@@ -144,20 +156,21 @@ namespace PZ1
 
         private void DeleteMovieButton_Click(object sender, RoutedEventArgs e)
         {
-
+            bool approved = false;
             int numOfSelection = 0;
+            Movie movie;
             for (int i = Movies.Count - 1; i >= 0; i--)
             {
                 if (Movies.ElementAt(i).IsChecked == true)
                 {
                     numOfSelection++;
-                    this.NoneSelectedErrorTextBlock.Visibility = Visibility.Hidden;
+                   // this.NoneSelectedErrorTextBlock.Visibility = Visibility.Hidden;
 
-                    if (numOfSelection == 1)
+                    if (numOfSelection == 1 && approved==false)
                     {
 
                         BooleanWrapper booleanWrapper = new BooleanWrapper();
-                        MovieDeleteApproval movieDeleteApproval = new MovieDeleteApproval(booleanWrapper);
+                        ApprovalWindow movieDeleteApproval = new ApprovalWindow(booleanWrapper, "Are you sure you want to delete the selected items ?");
                         movieDeleteApproval.Owner = this;
 
                         SystemSounds.Beep.Play();
@@ -168,8 +181,36 @@ namespace PZ1
                         {
                             break;
                         }
+                        else
+                        {
+                            approved = true;
+                            var content = new NotificationContent
+                             {
+                                 Title = "Success",
+                                 Message = "Selected items Got deleted",
+                                 Type = NotificationType.Success,
+                                 TrimType = NotificationTextTrimType.NoTrim,
+                                 Background = new SolidColorBrush(Colors.Blue),
+                                 Foreground= new SolidColorBrush(Colors.White),
+                                 CloseOnClick=false,
+
+
+                                 Icon = new SvgAwesome()
+                                 {
+                                     Icon = EFontAwesomeIcon.Solid_TrashAlt,
+                                     Height = 50,
+                                     Foreground = new SolidColorBrush(Colors.White)
+                                 },
+                             };
+
+                             notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
+                        }
                     
                     }
+
+                         movie = Movies.ElementAt(i);
+
+                         File.Delete(@movie.DescriptionPath);
 
                          Movies.RemoveAt(i);
                     
@@ -179,9 +220,9 @@ namespace PZ1
 
             if (numOfSelection == 0)
             {
-                this.NoneSelectedErrorTextBlock.Visibility = Visibility.Visible;
+                //this.NoneSelectedErrorTextBlock.Visibility = Visibility.Visible;
 
-               /* var content = new NotificationContent
+                var content = new NotificationContent
                 {
                     Title = "Error",
                     Message = "No Movies Selected For Delete",
@@ -200,8 +241,8 @@ namespace PZ1
                 };
 
                 notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-                */
-                dispatcherTimer.Start();
+              
+                //dispatcherTimer.Start();
 
             }
 
@@ -217,23 +258,47 @@ namespace PZ1
 
             if (LoggedInUser.Role == UserRole.Admin)
             {
-
-                if (movie.IsOpened == false) 
+                if (movie.IsOpened == false)
                 {
-                    MovieDetailsWindow movieDetailsWindow = new MovieDetailsWindow(movie);
-                    movieDetailsWindow.Owner = this;
-                    movieDetailsWindow.Show();
+                    BooleanWrapper booleanWrapper=new BooleanWrapper();
+                    AddOrEditingMovieWindow addOrEditingMovieWindow = new AddOrEditingMovieWindow(movie, booleanWrapper);
+                    addOrEditingMovieWindow.Owner= this;
+                    addOrEditingMovieWindow.ShowDialog();
+
+                    if (booleanWrapper.Value)
+                    {
+                        var content = new NotificationContent
+                        {
+                            Title = "Success",
+                            Message ="Movie got edited",
+                            Type = NotificationType.Success,
+                            TrimType = NotificationTextTrimType.NoTrim,
+                            Background = new SolidColorBrush(Colors.Green),
+                            Foreground = new SolidColorBrush(Colors.White),
+                            CloseOnClick = false,
+
+
+                            Icon = new SvgAwesome()
+                            {
+                                Icon = EFontAwesomeIcon.Solid_Check,
+                                Height = 50,
+                                Foreground = new SolidColorBrush(Colors.White)
+                            },
+                        };
+                        notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
+
+                    }
                 }
                 else
                 {
-
                     var content = new NotificationContent
                     {
                         Title = "Reminder",
-                        Message = "Movie already opened for detailed viewing or editing",
+                        Message = "Movie already opened for editing",
                         Type = NotificationType.Warning,
                         TrimType = NotificationTextTrimType.NoTrim,
                         Background = new SolidColorBrush(Colors.Orange),
+                        Foreground = new SolidColorBrush(Colors.White),
                         CloseOnClick = false,
 
 
@@ -246,16 +311,43 @@ namespace PZ1
                     };
 
                     notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-                    dispatcherTimer.Start();
-
-
+                    //dispatcherTimer.Start();
                 }
-
 
             }
             else
             {
-                //detailst
+                if (movie.IsOpened == false)
+                {
+                    MovieDetailsWindow movieDetailsWindow = new MovieDetailsWindow(movie);
+                    movieDetailsWindow.Owner = this;
+                    movieDetailsWindow.Show();
+                }
+                else
+                {
+
+                    var content = new NotificationContent
+                    {
+                        Title = "Reminder",
+                        Message = "Movie already opened for detailed viewing",
+                        Type = NotificationType.Warning,
+                        TrimType = NotificationTextTrimType.NoTrim,
+                        Background = new SolidColorBrush(Colors.Orange),
+                        Foreground = new SolidColorBrush(Colors.White),
+                        CloseOnClick = false,
+
+
+                        Icon = new SvgAwesome()
+                        {
+                            Icon = EFontAwesomeIcon.Solid_Exclamation,
+                            Height = 70,
+                            Foreground = new SolidColorBrush(Colors.Black)
+                        },
+                    };
+
+                    notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
+                   // dispatcherTimer.Start();
+                }
             }
 
         }
@@ -263,9 +355,40 @@ namespace PZ1
         private void NewMovieButton_Click(object sender, RoutedEventArgs e)
         {
 
-            AddOrEditingMovieWindow addOrEditingMovieWindow = new AddOrEditingMovieWindow();
+            BooleanWrapper booleanWrapper = new BooleanWrapper();
+
+            AddOrEditingMovieWindow addOrEditingMovieWindow = new AddOrEditingMovieWindow(Movies,booleanWrapper);
             addOrEditingMovieWindow.Owner = this;
-            addOrEditingMovieWindow.Show(); 
+
+            //bcs we have to give feedback with toast, so isOpened at movies at admin its actually useless thing
+            addOrEditingMovieWindow.ShowDialog(); 
+
+            if(booleanWrapper.Value)
+            {
+                //success
+                var content = new NotificationContent
+                {
+                    Title = "Success",
+                    Message = "Movie got added",
+                    Type = NotificationType.Success,
+                    TrimType = NotificationTextTrimType.NoTrim,
+                    Background = new SolidColorBrush(Colors.Green),
+                    Foreground = new SolidColorBrush(Colors.White),
+                    CloseOnClick = false,
+
+
+                    Icon = new SvgAwesome()
+                    {
+                        Icon = EFontAwesomeIcon.Solid_Plus,
+                        Height = 50,
+                        Foreground = new SolidColorBrush(Colors.White)
+                    },
+                };
+
+                notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
+
+            }
+
         }
     }
 }

@@ -32,10 +32,11 @@ namespace PZ1
 
         private List<User> allUserCredentials;
 
-        public User LoggedInUser { get; set; }
-
         public List<User> AllUserCredentials { get { return allUserCredentials; } }
 
+        public User LoggedInUser { get; set; }
+
+        //Saving starting position,when we got back from CMSWindow, than we can set the default starting position again
         private double leftPosition=double.NaN, topPosition;
 
         public LoginWindow()
@@ -48,19 +49,11 @@ namespace PZ1
                 MessageBox.Show("Missing application files!","Error",MessageBoxButton.OK);
 
                 throw new Exception("CorruptedUserFiles");
-
             }
 
-
             InitializeComponent();
-
-
-            //delete after dev
-            this.UserNameTextBox.Text = "Admin";
-            this.PasswordTextBox.Password = "admin123";
-            LoginButton_Click(null, null);
-
         }
+
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -68,9 +61,6 @@ namespace PZ1
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            //Delete after dev
-            Show();
-
             string userName = this.UserNameTextBox.Text;
             string password = this.PasswordTextBox.Password.ToString();
 
@@ -86,17 +76,19 @@ namespace PZ1
                 
                 Show();
 
-                this.Left = leftPosition; 
-                this.Top=topPosition;
-            }
+                this.Left = leftPosition;
+                this.Top = topPosition;
 
+                FocusManager.SetFocusedElement(FocusManager.GetFocusScope(LoginButton), null);
+                Keyboard.ClearFocus();
+            }
         }
 
         private void RemoveLoginValues()
         {
             LoggedInUser = null;
-            this.PasswordTextBox.Password = string.Empty;
             this.UserNameTextBox.Text = string.Empty;
+            this.PasswordTextBox.Password = string.Empty;
         }
 
         private void RemoveErrorMessages()
@@ -112,29 +104,31 @@ namespace PZ1
             if (userName.Trim().Equals(string.Empty) && password.Length.Equals(0))
             {
                 RemoveErrorMessages();
+
                 this.UserNameTextBox.BorderBrush = Brushes.Red;
                 this.PasswordTextBox.BorderBrush = Brushes.Red;
-                this.InvalidLoginAttemptLabel.Content = "Username and Password can not be blank";
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
+                this.InvalidLoginAttemptLabel.Content = "Username and Password can not be blank";
 
                 return false;
-
             }
             else if(!userName.Trim().Equals(string.Empty) && password.Length.Equals(0))
             {
                 RemoveErrorMessages();
+
                 this.PasswordTextBox.BorderBrush = Brushes.Red;
-                this.InvalidLoginAttemptLabel.Content = "Password can not be blank";
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
+                this.InvalidLoginAttemptLabel.Content = "Password can not be blank";
 
                 return false;
             }
             else if(userName.Trim().Equals(string.Empty) && !password.Length.Equals(0))
             {
                 RemoveErrorMessages();
+
                 this.UserNameTextBox.BorderBrush = Brushes.Red;
-                this.InvalidLoginAttemptLabel.Content = "Username can not be blank";
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
+                this.InvalidLoginAttemptLabel.Content = "Username can not be blank";
 
                 return false;
             }
@@ -158,10 +152,11 @@ namespace PZ1
                 }
 
                 RemoveErrorMessages();
+
                 this.UserNameTextBox.BorderBrush = Brushes.Red;
                 this.PasswordTextBox.BorderBrush = Brushes.Red;
-                this.InvalidLoginAttemptLabel.Content = "Invalid Username or Password ";
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
+                this.InvalidLoginAttemptLabel.Content = "Invalid Username or Password ";
 
                 return false;                    
             }
@@ -173,6 +168,7 @@ namespace PZ1
 
             FocusManager.SetFocusedElement(FocusManager.GetFocusScope(LoginButton), null);
             Keyboard.ClearFocus();
+
             if (leftPosition.Equals(double.NaN))
             {
                 leftPosition = this.Left;
@@ -196,7 +192,6 @@ namespace PZ1
             {
                 this.PasswordTextBox.Focus();
             }
-
         }
     }
 }

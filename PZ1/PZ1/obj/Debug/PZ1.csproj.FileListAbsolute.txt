@@ -31,7 +31,7 @@ D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\P
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\App.baml
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDetailsWindow.g.cs
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDetailsWindow.baml
-D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDeleteApproval.g.cs
-D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\MovieDeleteApproval.baml
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\AddOrEditingMovieWindow.g.cs
 D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\AddOrEditingMovieWindow.baml
+D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\ApprovalWindow.g.cs
+D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\obj\Debug\ApprovalWindow.baml

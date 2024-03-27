@@ -133,6 +133,7 @@
                 <DataGrid.Columns>
 
                     <DataGridTemplateColumn 
+                        x:Name="CheckBoxColumn"
                         Header="Selection"
                         Width="100">
                         <DataGridTemplateColumn.CellTemplate>
@@ -204,7 +205,8 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn                    
+                    <DataGridTemplateColumn 
+                        x:Name="TitleColumn"
                         Width="345.5"
                         Header="Title">
 
@@ -251,6 +253,7 @@
 
 
                     <DataGridTemplateColumn
+                         x:Name="ImageColumn"
                          IsReadOnly="False"
                          Width="267"
                          Header="Image">
@@ -259,7 +262,7 @@
                                 <Image 
                                     Margin="0,5,0,5"
                                     Height="100"
-                                    Width="270"
+                                    Width="267"
                                     Source="{Binding ImageUri}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -277,7 +280,7 @@
                             <Setter Property="TextBox.TextWrapping" Value="Wrap" />
                             <Setter Property="TextBox.TextAlignment" Value="Center"/>
                             <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
-                            <Setter Property="TextBox.Margin" Value="5,0,5,0"/>
+                            <Setter Property="TextBox.Margin" Value="1,0,1,0"/>
                         </Style>
                         </DataGridTextColumn.ElementStyle>
 
@@ -289,50 +292,47 @@
 
             <StackPanel Orientation="Horizontal"
                 Margin="0,15,0,15"
-                HorizontalAlignment="Right">
+                HorizontalAlignment="Center">
 
-                <TextBlock
-                    Foreground="Red"
+                
+                
+                    <!--Foreground="Red"
                     x:Name="NoneSelectedErrorTextBlock"
                     Text="No Movies Selected To Delete"
                     FontSize="17"
                     FontFamily="FontFamily/#Star jedi"
                     Visibility="Hidden"
                     Background="Black"
-                    Margin="0,6,16,0">
-
-                </TextBlock>
-
-
+                    Margin="0,6,16,0"/>-->
+                
                 <Button 
                     x:Name="NewMovieButton"
                     Content="New"
                     Click="NewMovieButton_Click"
                     ToolTip="Add a new movie"
                     Height="40"
-                    Width="130"
+                    Width="180"
                     FontSize="34"
-                    Margin="0,0,30,0"/>
+                    Margin="0,0,50,0"/>
 
+                <Button 
+                    x:Name="ExitButton"
+                    Content="Exit"
+                    Margin="0,0,50,0"
+                    Click="ExitButton_Click"
+                    Height="40"
+                    Width="180"
+                    ToolTip="Go back to the Login"
+                    FontSize="34"/>
+                
                 <Button 
                     x:Name="DeleteMovieButton"
                     Content="Delete"
                     ToolTip="Delete the selected movies"
                     Height="40"
-                    Width="190"
+                    Width="180"
                     FontSize="34"
-                    Click="DeleteMovieButton_Click"
-                    Margin="0,0,30,0"/>
-
-                <Button 
-                    x:Name="ExitButton"
-                    Content="Exit"
-                    Click="ExitButton_Click"
-                    Height="40"
-                    ToolTip="Go back to the Login"
-                    FontSize="34"
-                    Width="130"/>
-
+                    Click="DeleteMovieButton_Click"/>
 
             </StackPanel>
         </StackPanel>

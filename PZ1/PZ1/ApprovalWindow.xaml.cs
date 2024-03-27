@@ -18,23 +18,26 @@ namespace PZ1
     /// <summary>
     /// Interaction logic for MovieDeleteApproval.xaml
     /// </summary>
-    public partial class MovieDeleteApproval : Window
+    public partial class ApprovalWindow : Window
     {
         private BooleanWrapper confirmation;
 
-        public MovieDeleteApproval(BooleanWrapper booleanWrapper)
+        public ApprovalWindow(BooleanWrapper booleanWrapper,string aproveText)
         {
+
             confirmation = booleanWrapper;
+
             InitializeComponent();
+            this.AproveTextBlock.Text = aproveText;
         }
 
-        private void CancelDelete_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             confirmation.Value = false;
             this.Close();
         }
 
-        private void ApproveDelete_Click(object sender, RoutedEventArgs e)
+        private void Approve_Click(object sender, RoutedEventArgs e)
         {
             confirmation.Value = true;
             this.Close();

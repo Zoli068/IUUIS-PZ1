@@ -70,7 +70,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="5*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -80,6 +81,7 @@
 
 
             <Label 
+                    x:Name="WindowTitle"
                     Grid.Row="0"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Center"
@@ -100,6 +102,7 @@
 
                 <TextBox
                             Width="388"
+                            x:Name="TitleTextBox"
                             FontFamily="FontFamily/#Star Jedi"
                             Foreground="#FFE81F"
                             FontSize="22"
@@ -109,6 +112,7 @@
                             Background="Black"/>
 
                 <Label 
+                            x:Name="TitleErrorLabel"
                             Content="Title Cannot Be Empty"
                             HorizontalAlignment="Center"
                             Foreground="Black"
@@ -142,7 +146,7 @@
                             
                                 <Image
                                     x:Name="PreviewImage"
-                                    Margin="0,4"
+                                    Margin="0,8,0,0"
                                     Visibility="Collapsed"
                                     Width="259"
                                     Source="{Binding ImageSource}"
@@ -237,6 +241,7 @@
 
                 <TextBox
                         Width="269"
+                        x:Name="RatingTextBox"
                         FontFamily="FontFamily/#Star Jedi"
                         Foreground="#FFE81F"
                         FontSize="22"
@@ -247,6 +252,7 @@
                         Background="Black"/>
 
                 <TextBlock 
+                        x:Name="RatingErrorTextBlock"
                         Text="Rating Must be in between 0 and 10"
                         TextWrapping="Wrap"
                         TextAlignment="Center"
@@ -466,12 +472,61 @@
                 <RichTextBox   
                         BorderBrush="White"
                         SelectionChanged="RichTextBox_SelectionChanged"
+                        TextChanged="RichTextBox_TextChanged"
                         PreviewKeyDown="RichTextBox_PreviewKeyDown"
                         Background="Black"
                         x:Name="RichTextBox"
                                />
 
+
             </DockPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Orientation="Horizontal"
+                VerticalAlignment="Bottom"
+                Margin="6,0,0,8">
+               
+                <Label 
+                    FontSize="15"
+                    Content="Number Of Words:"/>
+
+                <Label
+                    FontSize="15"
+                    Content="{Binding NumOfWord}"/>
+
+            </StackPanel>
+
+
+            <StackPanel
+                 HorizontalAlignment="Center"
+                 Orientation="Horizontal"
+                 Grid.ColumnSpan="2"
+                 Grid.Row="4">
+                
+                <Button
+                    Width="160"
+                    Height="40"
+                    Click="AddButton_Click"
+                    x:Name="AddButton"
+                    ToolTip="Add a movie"
+                    Margin="0,0,50,0"
+                    FontSize="32"
+                    Content=" Add "/>
+
+                <Button
+                    Width="160"
+                    x:Name="CancelButton"
+                    ToolTip="Cancel the addition"
+                    Click="CancelButton_Click"
+                    Height="40"
+                    FontSize="32"
+                    Content="Cancel"/>
+
+
+
+            </StackPanel>
+            
 
 
         </Grid>

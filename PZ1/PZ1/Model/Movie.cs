@@ -16,6 +16,7 @@ namespace PZ1.Model
         private bool isOpened;
         public double Rating { get; set; }
         public string Title { get; set; }
+
         public string ImagePath
         {
             get
@@ -29,6 +30,7 @@ namespace PZ1.Model
                 ImageUri = new Uri("pack://"+@imagePath,UriKind.Absolute);
             }
         }
+
         public string DescriptionPath
         {
             get
@@ -39,8 +41,6 @@ namespace PZ1.Model
             set
             {
                 descriptionPath = @value;
-
-
             }
         }
 
