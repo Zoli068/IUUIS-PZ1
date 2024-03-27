@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\cmswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\cmswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\cmswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\cmswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\cmswindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\cmswindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|d:\\fakultet\\iii godina\\inzenjerstvo upotr.  -hci\\predmetni zadatak 1\\iuuis-pz1\\pz1\\pz1\\addoreditingmoviewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBEA361F-4F5F-4498-B022-65EA2091F6DE}|PZ1\\PZ1.csproj|solutionrelative:pz1\\addoreditingmoviewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,86 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 293,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CMSWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml.cs",
-              "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml.cs",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml.cs",
-              "RelativeToolTip": "PZ1\\CMSWindow.xaml.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Title": "AddOrEditingMovieWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\AddOrEditingMovieWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PZ1\\AddOrEditingMovieWindow.xaml.cs",
+              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\AddOrEditingMovieWindow.xaml.cs",
+              "RelativeToolTip": "PZ1\\AddOrEditingMovieWindow.xaml.cs",
+              "ViewState": "AQIAALABAAAAAAAAAAAAAGIBAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T21:44:34.719Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "2481a436-e763-4764-9e2e-76afc9dde96b",
-        "Display": 1,
-        "X": 412,
-        "Y": 193,
-        "Width": 800,
-        "Height": 600,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CMSWindow.xaml",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
-              "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
-              "RelativeToolTip": "PZ1\\CMSWindow.xaml",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAvwBUAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-27T21:44:42.141Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "5d5f8cd8-2f0f-41e4-8f48-165711323030",
-        "Display": 0,
-        "X": 1,
-        "Y": 1,
-        "Width": 1279,
-        "Height": 671,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CMSWindow.xaml",
-              "DocumentMoniker": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
-              "RelativeDocumentMoniker": "PZ1\\CMSWindow.xaml",
-              "ToolTip": "D:\\Fakultet\\III godina\\Inzenjerstvo upotr.  -HCI\\Predmetni zadatak 1\\IUUIS-PZ1\\PZ1\\PZ1\\CMSWindow.xaml",
-              "RelativeToolTip": "PZ1\\CMSWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-27T21:44:31.646Z",
+              "WhenOpened": "2024-03-27T23:16:27.527Z",
               "EditorCaption": ""
             }
           ]

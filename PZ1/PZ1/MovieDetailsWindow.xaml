@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PZ1"
         mc:Ignorable="d"
+        Height="600"
+        Width="700"
         WindowStyle="None"
-        WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         Title="MovieDetailsWindow" 
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Height="600"
         AllowsTransparency="True"
-        Background="Transparent"
-        Width="700">
-
+        Background="Transparent" 
+        WindowStartupLocation="CenterOwner"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <Border  
         CornerRadius="25"
@@ -23,8 +22,8 @@
         DataContext="{Binding MovieDetail}"
         BorderBrush="White">
 
-
         <Grid>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="8*"/>
@@ -44,10 +43,10 @@
                 </Border.Background>
 
                 <Image  
-                        Margin="0,10,0,10"
-                        Grid.ColumnSpan="2"
-                        MaxWidth="650"
-                        Source="{Binding ImageUri}"/>
+                    Margin="0,10,0,10"
+                    Grid.ColumnSpan="2"
+                    MaxWidth="650"
+                    Source="{Binding ImageUri}"/>
 
             </Border>
 
@@ -67,44 +66,43 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-
                 <Label
-                 Grid.Row="0"
-                 Grid.ColumnSpan="2"
-                 VerticalAlignment="Top"
-                 VerticalContentAlignment="Center"
-                 HorizontalContentAlignment="Center"
-                 BorderBrush="White"
-                 BorderThickness="0,1,0,1"
-                 Height="75"
-                 Width="700">
+                     Grid.ColumnSpan="2"
+                     Grid.Row="0"
+                     Height="75"
+                     Width="700"
+                     BorderThickness="0,1,0,1"
+                     BorderBrush="White"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center">
 
                     <TextBlock
-                    MaxWidth="660"
-                    TextAlignment="Center"
-                    TextWrapping="Wrap"
-                    FontSize="30"          
-                    Text="{Binding Title}"/>
+                        MaxWidth="660"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        FontSize="30"          
+                        Text="{Binding Title}"/>
 
                 </Label>
 
                 <RichTextBox 
-                    Margin="5"
-                    SelectionBrush="Transparent"
-                    AllowDrop="False"
                     x:Name="RichTextBoxDescription"
-                    Background="Black"
                     Grid.Row="1"
-                    BorderThickness="0"
+                    Grid.ColumnSpan="2"
+                    AllowDrop="False"
                     IsReadOnly="True"
-                    Grid.ColumnSpan="2"/>
-
+                    Margin="5"
+                    Background="Black"
+                    BorderThickness="0"
+                    SelectionBrush="Transparent"/>
 
                 <Border 
                     Grid.Row="2" 
                     Grid.ColumnSpan="2"
                     BorderBrush="White"
                     BorderThickness="0,1,0,1">
+                    
                     <Grid>
 
                         <StackPanel
@@ -115,14 +113,15 @@
 
                             <Label  FontSize="20" Content="Rating:"/>
                             <Label  FontSize="20" Content="{Binding Rating}"/>
+                            
                         </StackPanel>
 
                         <StackPanel
-                            ToolTip="Movie got added on this date"
-                            Margin="0,0,13,0"
-                            VerticalAlignment="Center"
-                            Grid.Column="2"
                             Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,0,13,0"
+                            ToolTip="Movie got added on this date"
+                            VerticalAlignment="Center"
                             HorizontalAlignment="Right"
                             Orientation="Horizontal">
 
@@ -137,14 +136,14 @@
                 <Button 
                     Grid.Row="3"
                     Grid.ColumnSpan="2"
-                    HorizontalAlignment="Center"
                     x:Name="ExitButton"
+                    Height="40"
+                    Width="130"
+                    FontSize="34"
                     Content="Exit"
                     Click="ExitButton_Click"
-                    Height="40"
                     ToolTip="Close the detailed view"
-                    FontSize="34"
-                    Width="130"/>
+                    HorizontalAlignment="Center"/>
                       
             </Grid>
         </Grid>

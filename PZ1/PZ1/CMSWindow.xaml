@@ -5,38 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PZ1" xmlns:fa5="http://schemas.fontawesome.com/icons/" xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
         mc:Ignorable="d"
+        Height="650"
+        Width="1000"
         Title="CMSWindow"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStartupLocation="CenterOwner"
-        Height="650"
-        Width="1000"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
-    
+
     <Canvas Height="650" 
             Width="1000">
 
-
         <notifications:NotificationArea
-                            x:Name="CMSWindowNotificationArea"
-                            Panel.ZIndex="1000"
-                            MaxItems="1"
-                            Margin="320,10,0,0"
-                            Position="Center" />
-
+            x:Name="CMSWindowNotificationArea"
+            Panel.ZIndex="1000"
+            MaxItems="1"
+            Margin="320,10,0,0"
+            Position="Center" />
 
         <Path
-        Name="UIPath"
-        Stroke="White"         
-        StrokeThickness="1">
-
+            Name="UIPath"
+            Stroke="White"         
+            StrokeThickness="1">
 
             <Path.Fill>
                 <ImageBrush ImageSource="StarWarsSkyBackground.png"/>
             </Path.Fill>
-            
+
             <Path.Data>
                 <PathGeometry>
                     <PathFigure StartPoint="60,0">
@@ -53,7 +50,7 @@
                             RotationAngle="90"
                             Point="60,650"
                             Size="60,60"/>
-                        <LineSegment Point="950,650"/>                        
+                        <LineSegment Point="950,650"/>
                         <ArcSegment
                             SweepDirection="Counterclockwise"
                             IsLargeArc="False"
@@ -71,17 +68,17 @@
                     </PathFigure>
                 </PathGeometry>
             </Path.Data>
-            
+
         </Path>
 
-        
+
         <StackPanel
             Margin="70,10,0,70">
 
             <Label
                 MaxHeight="50"
-                Margin="0,0,0,10"
                 FontSize="48"
+                Margin="0,0,0,10"
                 HorizontalContentAlignment="Center"
                 Content="Star Wars Movies"/>
 
@@ -89,20 +86,18 @@
                 x:Name="MoviesDataGrid"
                 Width="860" 
                 Height="510"
-                HeadersVisibility="Column"
-                CanUserAddRows="False"
                 ItemsSource="{Binding Movies}"
                 MinRowHeight="50"
-                AutoGenerateColumns="False"
                 Background="Black"
-                RowBackground="Transparent"
                 BorderBrush="White"
                 Foreground="#FFE81F"
+                RowBackground="Transparent"
+                CanUserAddRows="False"
+                HeadersVisibility="Column"
+                AutoGenerateColumns="False"
                 HorizontalScrollBarVisibility="Hidden"
                 VerticalScrollBarVisibility="Hidden"
                 FontFamily="FontFamily/#SF Distant Galaxy">
-
-                
 
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -126,9 +121,7 @@
                             </Trigger>
                         </Style.Triggers>
                     </Style>
-
                 </DataGrid.Resources>
-
 
                 <DataGrid.Columns>
 
@@ -136,7 +129,9 @@
                         x:Name="CheckBoxColumn"
                         Header="Selection"
                         Width="100">
+
                         <DataGridTemplateColumn.CellTemplate>
+
                             <DataTemplate >
 
                                 <CheckBox
@@ -148,24 +143,25 @@
                                     Click="CheckBoxDeleteSelection_Click"/>
 
                                 <DataTemplate.Resources>
-                                    <Style TargetType="{x:Type CheckBox}"  >
+                                    <Style TargetType="{x:Type CheckBox}">
 
                                         <Setter Property="LayoutTransform">
                                             <Setter.Value>
-                                                <ScaleTransform ScaleX="5" ScaleY="5" />
+                                                <ScaleTransform ScaleX="5" ScaleY="5"/>
                                             </Setter.Value>
                                         </Setter>
 
                                         <Setter Property="Template">
                                             <Setter.Value>
-                                                <ControlTemplate TargetType="CheckBox"  >
+                                                <ControlTemplate TargetType="CheckBox">
+
                                                     <Border x:Name="Border"
-                                                                  IsEnabled="False"
-                                                                  Width="15"
-                                                                  Height="15"
-                                                                  Background="{TemplateBinding Background}"
-                                                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                                                  BorderThickness="0.4">
+                                                            IsEnabled="False"
+                                                            Width="15"
+                                                            Height="15"
+                                                            Background="{TemplateBinding Background}"
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            BorderThickness="0.4">
 
                                                         <fa5:SvgAwesome
                                                            x:Name="CheckedIcon"
@@ -185,7 +181,6 @@
                                                             <Setter Property="BorderBrush" Value="#103CAB" />
                                                         </Trigger>
 
-
                                                         <Trigger Property="IsChecked" Value="True">
                                                             <Setter Property="BorderBrush" Value="#103CAB" />
                                                             <Setter TargetName="CheckedIcon" Property="Visibility" Value="Visible" />
@@ -195,12 +190,9 @@
 
                                                 </ControlTemplate>
                                             </Setter.Value>
-
                                         </Setter>
-
                                     </Style>
                                 </DataTemplate.Resources>
-
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -212,21 +204,21 @@
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
+
                                 <TextBlock
-                                     TextAlignment="Center"
-                                     VerticalAlignment="Center">
+                                    TextAlignment="Center"
+                                    VerticalAlignment="Center">
                                     
-                                      <Hyperlink 
+                                    <Hyperlink 
                                         x:Name="TitleHyperLink"
                                         Click="TitleHyperLink_Click"
                                         TextDecorations="None">
                                         
-                                          <TextBlock
-                                                Text="{Binding Title}"
-                                                FontSize="20"
-                                                TextWrapping="Wrap"
-
-                                                Margin="5,0,5,0">
+                                        <TextBlock
+                                            Text="{Binding Title}"
+                                            FontSize="20"
+                                            TextWrapping="Wrap"
+                                            Margin="5,0,5,0">
 
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock">
@@ -238,33 +230,38 @@
                                                             <Setter Property="Foreground" Value="white"/>
                                                         </Trigger>
                                                     </Style.Triggers>
+
                                                 </Style>
-                                            </TextBlock.Style>
-                                            
-                                              
-                                          </TextBlock>
-                                          
-                                     </Hyperlink>
-                              </TextBlock>
+                                            </TextBlock.Style>    
+                                        </TextBlock>
+                                        
+                                    </Hyperlink>
+                                    
+                                </TextBlock>
+
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                        
                     </DataGridTemplateColumn>
 
 
                     <DataGridTemplateColumn
-                         x:Name="ImageColumn"
-                         IsReadOnly="False"
-                         Width="267"
-                         Header="Image">
+                        x:Name="ImageColumn"
+                        IsReadOnly="False"
+                        Width="267"
+                        Header="Image">
+
                         <DataGridTemplateColumn.CellTemplate>
+
                             <DataTemplate>
+
                                 <Image 
                                     Margin="0,5,0,5"
                                     Height="100"
                                     Width="267"
                                     Source="{Binding ImageUri}"/>
+
                             </DataTemplate>
+
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
@@ -274,37 +271,28 @@
                         FontSize="20"    
                         Header="Date"
                         Binding="{Binding DateAdded}">
-                        
-                        <DataGridTextColumn.ElementStyle>
-                            <Style>
-                            <Setter Property="TextBox.TextWrapping" Value="Wrap" />
-                            <Setter Property="TextBox.TextAlignment" Value="Center"/>
-                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
-                            <Setter Property="TextBox.Margin" Value="1,0,1,0"/>
-                        </Style>
-                        </DataGridTextColumn.ElementStyle>
 
+                        <DataGridTextColumn.ElementStyle>
+
+                            <Style>
+
+                                <Setter Property="TextBox.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBox.TextAlignment" Value="Center"/>
+                                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextBox.Margin" Value="1,0,1,0"/>
+
+                            </Style>
+
+                        </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
                 </DataGrid.Columns>
-
             </DataGrid>
 
             <StackPanel Orientation="Horizontal"
                 Margin="0,15,0,15"
                 HorizontalAlignment="Center">
 
-                
-                
-                    <!--Foreground="Red"
-                    x:Name="NoneSelectedErrorTextBlock"
-                    Text="No Movies Selected To Delete"
-                    FontSize="17"
-                    FontFamily="FontFamily/#Star jedi"
-                    Visibility="Hidden"
-                    Background="Black"
-                    Margin="0,6,16,0"/>-->
-                
                 <Button 
                     x:Name="NewMovieButton"
                     Content="New"
@@ -316,15 +304,15 @@
                     Margin="0,0,50,0"/>
 
                 <Button 
-                    x:Name="ExitButton"
-                    Content="Exit"
+                    x:Name="LogOutButton"
+                    Content="Log Out"
+                    Click="LogOutButton_Click"
+                    ToolTip="Go back to the login"
                     Margin="0,0,50,0"
-                    Click="ExitButton_Click"
                     Height="40"
                     Width="180"
-                    ToolTip="Go back to the Login"
                     FontSize="34"/>
-                
+
                 <Button 
                     x:Name="DeleteMovieButton"
                     Content="Delete"

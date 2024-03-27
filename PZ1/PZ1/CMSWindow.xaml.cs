@@ -44,8 +44,6 @@ namespace PZ1
 
         private NotificationManager notificationManager = new NotificationManager();
 
-        private DispatcherTimer dispatcherTimer;
-
         private DataIO serializer=new DataIO();
 
         public User LoggedInUser {  get; set; }
@@ -61,7 +59,6 @@ namespace PZ1
 
         private void CMSWindowStartUp(User loggedInUser)
         {
-            serializer.SerializeObject<ObservableCollection<Movie>>(Movies, "MovieCollection.xml");
 
             movies = serializer.DeSerializeObject<ObservableCollection<Movie>>("MovieCollection.xml");
 
@@ -74,22 +71,9 @@ namespace PZ1
 
             DataContext = this;
 
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
-
             string FontFamilyPath = Directory.GetCurrentDirectory();
 
             NotificationConstants.FontName = (FontFamilyPath + "\\#Star Jedi");
-
-
-        }
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-           // NoneSelectedErrorTextBlock.Visibility = System.Windows.Visibility.Hidden;
-
-            dispatcherTimer.IsEnabled = false;
         }
 
         private void DenyPermission(User loggedInUser)
@@ -111,13 +95,12 @@ namespace PZ1
             DragMove();
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
-
             BooleanWrapper booleanWrapper = new BooleanWrapper();
 
-            ApprovalWindow exitApprovalWindow = new ApprovalWindow(booleanWrapper, "Are you sure you want to logout?");
-
+            ApprovalWindow exitApprovalWindow = new ApprovalWindow(booleanWrapper, "Are you sure you want to log out?");
+            exitApprovalWindow.Owner = this;
             exitApprovalWindow.ShowDialog();
 
             if (booleanWrapper.Value == false)
@@ -134,14 +117,7 @@ namespace PZ1
         {
             Movie movie = (sender as FrameworkElement).DataContext as Movie;
 
-
-            //If we got error, but after that the user select some item
-            //then we can hide the error
-            //this.NoneSelectedErrorTextBlock.Visibility = Visibility.Hidden;
-            //dispatcherTimer.IsEnabled = false;
-
-
-            if ( movie.IsChecked == false)
+            if (movie.IsChecked == false)
             {
                 movie.IsChecked = true;
             }
@@ -149,22 +125,19 @@ namespace PZ1
             {
                 movie.IsChecked = false;
             }
-
         }
-
-
 
         private void DeleteMovieButton_Click(object sender, RoutedEventArgs e)
         {
             bool approved = false;
             int numOfSelection = 0;
             Movie movie;
+
             for (int i = Movies.Count - 1; i >= 0; i--)
             {
                 if (Movies.ElementAt(i).IsChecked == true)
                 {
                     numOfSelection++;
-                   // this.NoneSelectedErrorTextBlock.Visibility = Visibility.Hidden;
 
                     if (numOfSelection == 1 && approved==false)
                     {
@@ -172,9 +145,7 @@ namespace PZ1
                         BooleanWrapper booleanWrapper = new BooleanWrapper();
                         ApprovalWindow movieDeleteApproval = new ApprovalWindow(booleanWrapper, "Are you sure you want to delete the selected items ?");
                         movieDeleteApproval.Owner = this;
-
                         SystemSounds.Beep.Play();
-
                         movieDeleteApproval.ShowDialog();
 
                         if (booleanWrapper.Value==false)
@@ -184,6 +155,7 @@ namespace PZ1
                         else
                         {
                             approved = true;
+
                             var content = new NotificationContent
                              {
                                  Title = "Success",
@@ -193,7 +165,6 @@ namespace PZ1
                                  Background = new SolidColorBrush(Colors.Blue),
                                  Foreground= new SolidColorBrush(Colors.White),
                                  CloseOnClick=false,
-
 
                                  Icon = new SvgAwesome()
                                  {
@@ -205,22 +176,18 @@ namespace PZ1
 
                              notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
                         }
-                    
                     }
 
-                         movie = Movies.ElementAt(i);
+                    movie = Movies.ElementAt(i);
 
-                         File.Delete(@movie.DescriptionPath);
+                    File.Delete(@movie.DescriptionPath);
 
-                         Movies.RemoveAt(i);
-                    
+                    Movies.RemoveAt(i);    
                 }
             }
 
-
             if (numOfSelection == 0)
             {
-                //this.NoneSelectedErrorTextBlock.Visibility = Visibility.Visible;
 
                 var content = new NotificationContent
                 {
@@ -231,7 +198,6 @@ namespace PZ1
                     Background = new SolidColorBrush(Colors.Red),
                     CloseOnClick=false,
 
-
                     Icon = new SvgAwesome()
                     {
                         Icon = EFontAwesomeIcon.Solid_Ban,
@@ -240,29 +206,24 @@ namespace PZ1
                     },
                 };
 
-                notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-              
-                //dispatcherTimer.Start();
-
+                notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));       
             }
-
-
         }
 
         private void TitleHyperLink_Click(object sender, RoutedEventArgs e)
         {
             Hyperlink hyperlink = sender as Hyperlink;
             TextBlock senderTextBlock = hyperlink.Parent as TextBlock;
-
             Movie movie = senderTextBlock.DataContext as Movie;
 
             if (LoggedInUser.Role == UserRole.Admin)
             {
+                //This if doesn't do anything,bcs we have to do notify the user for editing
                 if (movie.IsOpened == false)
                 {
                     BooleanWrapper booleanWrapper=new BooleanWrapper();
                     AddOrEditingMovieWindow addOrEditingMovieWindow = new AddOrEditingMovieWindow(movie, booleanWrapper);
-                    addOrEditingMovieWindow.Owner= this;
+                    addOrEditingMovieWindow.Owner=this;
                     addOrEditingMovieWindow.ShowDialog();
 
                     if (booleanWrapper.Value)
@@ -277,7 +238,6 @@ namespace PZ1
                             Foreground = new SolidColorBrush(Colors.White),
                             CloseOnClick = false,
 
-
                             Icon = new SvgAwesome()
                             {
                                 Icon = EFontAwesomeIcon.Solid_Check,
@@ -286,11 +246,11 @@ namespace PZ1
                             },
                         };
                         notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-
                     }
                 }
                 else
                 {
+                    //this part in this version won't ever be excecuted
                     var content = new NotificationContent
                     {
                         Title = "Reminder",
@@ -301,7 +261,6 @@ namespace PZ1
                         Foreground = new SolidColorBrush(Colors.White),
                         CloseOnClick = false,
 
-
                         Icon = new SvgAwesome()
                         {
                             Icon = EFontAwesomeIcon.Solid_Exclamation,
@@ -311,11 +270,9 @@ namespace PZ1
                     };
 
                     notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-                    //dispatcherTimer.Start();
                 }
-
             }
-            else
+            else //Visitor at hyperlink
             {
                 if (movie.IsOpened == false)
                 {
@@ -325,7 +282,6 @@ namespace PZ1
                 }
                 else
                 {
-
                     var content = new NotificationContent
                     {
                         Title = "Reminder",
@@ -336,7 +292,6 @@ namespace PZ1
                         Foreground = new SolidColorBrush(Colors.White),
                         CloseOnClick = false,
 
-
                         Icon = new SvgAwesome()
                         {
                             Icon = EFontAwesomeIcon.Solid_Exclamation,
@@ -346,21 +301,16 @@ namespace PZ1
                     };
 
                     notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-                   // dispatcherTimer.Start();
                 }
             }
-
         }
 
         private void NewMovieButton_Click(object sender, RoutedEventArgs e)
         {
 
             BooleanWrapper booleanWrapper = new BooleanWrapper();
-
             AddOrEditingMovieWindow addOrEditingMovieWindow = new AddOrEditingMovieWindow(Movies,booleanWrapper);
             addOrEditingMovieWindow.Owner = this;
-
-            //bcs we have to give feedback with toast, so isOpened at movies at admin its actually useless thing
             addOrEditingMovieWindow.ShowDialog(); 
 
             if(booleanWrapper.Value)
@@ -376,7 +326,6 @@ namespace PZ1
                     Foreground = new SolidColorBrush(Colors.White),
                     CloseOnClick = false,
 
-
                     Icon = new SvgAwesome()
                     {
                         Icon = EFontAwesomeIcon.Solid_Plus,
@@ -386,9 +335,7 @@ namespace PZ1
                 };
 
                 notificationManager.Show(content, "CMSWindowNotificationArea", ShowXbtn: false, expirationTime: new TimeSpan(0, 0, 5));
-
             }
-
         }
     }
 }

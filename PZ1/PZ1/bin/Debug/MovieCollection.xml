@@ -2,13 +2,6 @@
 <ArrayOfMovie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Movie>
     <Rating>2</Rating>
-    <Title>asd</Title>
-    <ImagePath>C:\Users\Zoli\Documents\Images\SW5.jpg</ImagePath>
-    <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\asd.rtf</DescriptionPath>
-    <DateAdded>2024-03-27</DateAdded>
-  </Movie>
-  <Movie>
-    <Rating>2</Rating>
     <Title>dfgsdf</Title>
     <ImagePath>C:\Users\Zoli\Documents\Images\SW4.jpg</ImagePath>
     <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\dfgsdf.rtf</DescriptionPath>

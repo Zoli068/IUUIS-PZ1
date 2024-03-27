@@ -22,26 +22,25 @@ namespace PZ1
     /// </summary>
     public partial class MovieDetailsWindow : Window
     {
-
         public Movie MovieDetail { get; set; }
 
         public MovieDetailsWindow(Movie movie)
         {
             movie.IsOpened = true;
             MovieDetail = movie;
+
             InitializeComponent();
+
             WindowStartup();
+
             DataContext = this;
-
         }
-
 
         private void WindowStartup()
         {
             FileStream streamFromRtfFile = new FileStream(@MovieDetail.DescriptionPath, System.IO.FileMode.Open);
             this.RichTextBoxDescription.Selection.Load(streamFromRtfFile, DataFormats.Rtf);
             streamFromRtfFile.Close();
-
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -54,7 +53,5 @@ namespace PZ1
             MovieDetail.IsOpened = false;
             Close();
         }
-
-
     }
 }

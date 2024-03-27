@@ -24,10 +24,10 @@ namespace PZ1
 
         public ApprovalWindow(BooleanWrapper booleanWrapper,string aproveText)
         {
-
             confirmation = booleanWrapper;
 
             InitializeComponent();
+
             this.AproveTextBlock.Text = aproveText;
         }
 

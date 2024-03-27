@@ -74,6 +74,8 @@ namespace PZ1
 
                 RemoveLoginValues();
                 
+                RemoveErrorMessages();
+
                 Show();
 
                 this.Left = leftPosition;
@@ -110,6 +112,8 @@ namespace PZ1
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
                 this.InvalidLoginAttemptLabel.Content = "Username and Password can not be blank";
 
+                Keyboard.Focus(UserNameTextBox);
+
                 return false;
             }
             else if(!userName.Trim().Equals(string.Empty) && password.Length.Equals(0))
@@ -120,6 +124,8 @@ namespace PZ1
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
                 this.InvalidLoginAttemptLabel.Content = "Password can not be blank";
 
+                Keyboard.Focus(PasswordTextBox);
+
                 return false;
             }
             else if(userName.Trim().Equals(string.Empty) && !password.Length.Equals(0))
@@ -129,6 +135,8 @@ namespace PZ1
                 this.UserNameTextBox.BorderBrush = Brushes.Red;
                 this.InvalidLoginAttemptLabel.Foreground = Brushes.Red;
                 this.InvalidLoginAttemptLabel.Content = "Username can not be blank";
+
+                Keyboard.Focus(UserNameTextBox);
 
                 return false;
             }

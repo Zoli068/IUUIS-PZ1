@@ -56,9 +56,9 @@
 
                     <fa5:SvgAwesome
                         Icon="Regular_User"
-                        Foreground="#FFE81F"
                         Height="30"
                         Width="30"
+                        Foreground="#FFE81F"
                         Margin="15,0,0,0"/>
 
                     <TextBox 
@@ -92,9 +92,9 @@
 
                     <fa5:SvgAwesome
                         Icon="Solid_Key"
-                        Foreground="#FFE81F"
                         Height="30"
                         Width="30"
+                        Foreground="#FFE81F"
                         Margin="15,0,0,0"/>
 
                     <PasswordBox

@@ -29,34 +29,43 @@ namespace PZ1
     /// </summary>
     public partial class AddOrEditingMovieWindow : System.Windows.Window, INotifyPropertyChanged
     {
+        //values for the new movie or the one we editing
         private Uri imageSource = null;
+        private string imagePath="";
+
+        //values for some methods
         private DispatcherTimer dispatcherTimer;
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //values for the window view
         private int numOfWord;
-        private bool isSetUp = true;
+
+        //values which we got from CMSWindow
         public ObservableCollection<Movie> Movies;
         public Movie movie;
-        private bool editOrAdd = false;
-        public BooleanWrapper booleanWrapper;
-        //Values for the new movie
-        private string imagePath="";
 
-        //default values
+        //we'll here save the return value (success/fail)
+        public BooleanWrapper booleanWrapper;
+
+        //flag values
+        private bool isSetUp = true;
+        private bool editOrAdd = false;
+
+        //default values for textEditor
+        private Brush fontColor;
         private int defaultFontSize = 16;
         private FontFamily defaultFontFamily = new FontFamily("Calibri");
         private string defaultFontColor = "White";
 
-        //def value too but in Brush
-        private Brush fontColor;
-
-
         public AddOrEditingMovieWindow(ObservableCollection<Movie> movies,BooleanWrapper booleanWrapper)
         {
             this.booleanWrapper = booleanWrapper;
+
             isSetUp = false;
             Movies = movies;
+
             InitializeComponent();
+
             DataContext = this;
 
             StartUp();
@@ -64,37 +73,14 @@ namespace PZ1
 
         public AddOrEditingMovieWindow(Movie movie, BooleanWrapper booleanWrapper) 
         {
-
             this.booleanWrapper = booleanWrapper;
-
             this.movie = movie;
+
             InitializeComponent();
 
-            this.WindowTitle.Content = "Editing a Movie";
             DataContext = this;
 
-            this. movie.IsOpened = false;
-            editOrAdd = true;
-
-            this.TitleTextBox.Text = movie.Title;
-            this.RatingTextBox.Text = movie.Rating.ToString();
-            this.imagePath = movie.ImagePath;
-
-            this.ImageSource = movie.ImageUri;
-            this.PreviewImage.Visibility = Visibility.Visible;
-            this.PreviewImageDropArea.Visibility = Visibility.Collapsed;
-
-
-            this.AddButton.Content = "Edit";
-            this.AddButton.ToolTip = "Edit a Movie";
-            this.CancelButton.ToolTip = "Cancel the editing";
-
-            FileStream streamFromRtfFile = new FileStream(@movie.DescriptionPath, System.IO.FileMode.Open);
-            this.RichTextBox.Selection.Load(streamFromRtfFile, System.Windows.DataFormats.Rtf);
-            streamFromRtfFile.Close();
-
             StartUp();
-            isSetUp = false;
         }
 
 
@@ -110,13 +96,40 @@ namespace PZ1
             FontColorComboBox.SelectedValue = defaultFontColor;
             fontColor = Brushes.White;
             RichTextBox.Foreground = fontColor;
+
             FontSizeTextBox.Text = defaultFontSize.ToString();
 
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 6);
 
-          }
+            if (isSetUp == true)
+            {
+                this.WindowTitle.Content = "Editing a Movie";
+
+                editOrAdd = true;
+                this.movie.IsOpened = true;
+
+                this.TitleTextBox.Text = movie.Title;
+
+                this.RatingTextBox.Text = movie.Rating.ToString();
+
+                this.imagePath = movie.ImagePath;
+                this.ImageSource = movie.ImageUri;
+                this.PreviewImage.Visibility = Visibility.Visible;
+                this.PreviewImageDropArea.Visibility = Visibility.Collapsed;
+
+                this.AddButton.Content = "Edit";
+                this.AddButton.ToolTip = "Edit a Movie";
+                this.CancelButton.ToolTip = "Cancel the editing";
+
+                FileStream streamFromRtfFile = new FileStream(@movie.DescriptionPath, System.IO.FileMode.Open);
+                this.RichTextBox.Selection.Load(streamFromRtfFile, System.Windows.DataFormats.Rtf);
+                streamFromRtfFile.Close();
+
+                isSetUp = false;
+            }
+        }
 
         public int NumOfWord
         {
@@ -131,7 +144,6 @@ namespace PZ1
                 OnPropertyChanged();
             }
         }
-
 
         public Brush FontColor
         {
@@ -162,9 +174,9 @@ namespace PZ1
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            this.InvalidExtensionErrorLabel.Foreground = Brushes.Black;
-            this.RatingErrorTextBlock.Foreground = Brushes.Black;
             this.TitleErrorLabel.Foreground = Brushes.Black;
+            this.ImageErrorLabel.Foreground = Brushes.Black;
+            this.RatingErrorTextBlock.Foreground = Brushes.Black;
 
             dispatcherTimer.IsEnabled = false;
         }
@@ -178,7 +190,6 @@ namespace PZ1
         {
             if (e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
             {
-                // Note that you can have more than one file.
                 string[] files = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop);
 
                 string extension = System.IO.Path.GetExtension(files[0]);
@@ -187,19 +198,18 @@ namespace PZ1
                 {
                     imagePath = files[0];
                     ImageSource = new Uri("pack://" + files[0], UriKind.Absolute);
+
+                    this.ImageErrorLabel.Foreground = Brushes.Black;
                     this.PreviewImage.Visibility = Visibility.Visible;
                     this.PreviewImageDropArea.Visibility = Visibility.Collapsed;
-                    this.InvalidExtensionErrorLabel.Foreground = Brushes.Black;
                 }
                 else
                 {
-                    this.InvalidExtensionErrorLabel.Foreground = Brushes.Red;
-                    this.InvalidExtensionErrorLabel.Content = "Invalid File Format";
+                    this.ImageErrorLabel.Content = "Invalid File Format";
+                    this.ImageErrorLabel.Foreground = Brushes.Red;
                     dispatcherTimer.Stop();
                     dispatcherTimer.Start();
                 }
-
-
             }
         }
 
@@ -213,6 +223,7 @@ namespace PZ1
         private void ImageSelectionButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
+
             dialog.DefaultExt = ".jpg";
             dialog.Filter = "Images|*.jpg;*.jpeg;*.png;*.gif;";
 
@@ -222,11 +233,11 @@ namespace PZ1
             {
                 imagePath = dialog.FileName;
                 ImageSource = new Uri("pack://" + dialog.FileName, UriKind.Absolute);
+
+                this.ImageErrorLabel.Foreground = Brushes.Black;
                 this.PreviewImage.Visibility = Visibility.Visible;
                 this.PreviewImageDropArea.Visibility = Visibility.Collapsed;
-                this.InvalidExtensionErrorLabel.Foreground = Brushes.Black;
             }
-
         }
 
         private void EditorToolBar_Loaded(object sender, RoutedEventArgs e)
@@ -234,18 +245,19 @@ namespace PZ1
             System.Windows.Controls.ToolBar toolBar = sender as System.Windows.Controls.ToolBar;
 
             var overflowGrid = toolBar.Template.FindName("OverflowGrid", toolBar) as FrameworkElement;
+
             if (overflowGrid != null)
             {
                 overflowGrid.Visibility = Visibility.Collapsed;
             }
 
             var mainPanelBorder = toolBar.Template.FindName("MainPanelBorder", toolBar) as FrameworkElement;
+
             if (mainPanelBorder != null)
             {
                 mainPanelBorder.Margin = new Thickness();
             }
         }
-
 
         private void RedoButton_Click(object sender, RoutedEventArgs e)
         {
@@ -260,10 +272,8 @@ namespace PZ1
         private void RichTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
 
-
             if (e.Key.Equals(Key.Space))
             {
-
                 System.Windows.Controls.RichTextBox rtb = sender as System.Windows.Controls.RichTextBox;
                 TextPointer tp = rtb.CaretPosition;
 
@@ -274,9 +284,7 @@ namespace PZ1
                 Keyboard.Focus(rtb);
 
                 RichTextBox.CaretPosition = tp;
-
             }
-
         }
 
         private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -320,129 +328,97 @@ namespace PZ1
             FocusManager.SetFocusedElement(FocusManager.GetFocusScope(this.FontFamilyComboBox), null);
         }
 
-
         private void FontSizeTextBox_TextChanged(object sender, RoutedEventArgs e)
         {
 
             if (isSetUp == false)
             {
-
-
                 int value;
 
                 if (int.TryParse(FontSizeTextBox.Text, out value))
                 {
-
                     if (value > 0 && value < 1200)
                     {
                         double fontValue = value;
 
                         if (FontSizeTextBox.Text != null && !RichTextBox.Selection.IsEmpty)
                         {
-                            
                             RichTextBox.Selection.ApplyPropertyValue(Inline.FontSizeProperty, fontValue);
 
                             if (!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length - 1).Equals(' '))
                             {
                                 TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
-
                                 textRange.Text = " ";
-
                                 textRange.ApplyPropertyValue(Inline.FontSizeProperty, double.Parse(defaultFontSize.ToString()));
                             }
-
                         }
                         else
                         {
                             FontSize = fontValue;
-
                             defaultFontSize = int.Parse(fontValue.ToString());
                             RichTextBox.FontSize = fontValue;
                             FontSizeTextBox.Text = FontSize.ToString();
                         }
-
                     }
                     else
                     {
                         FontSizeTextBox.Text = defaultFontSize.ToString();
                     }
-
                 }
                 else
                 {
                     FontSizeTextBox.Text = defaultFontSize.ToString();
                 }
-
             }
         }
 
-
         private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             if (isSetUp == false)
             {
-
-
-
-            if (FontFamilyComboBox.SelectedItem != null && !RichTextBox.Selection.IsEmpty)
-            {
-                RichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyComboBox.SelectedItem);
-
-                if (!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length - 1).Equals(' '))
+                if (FontFamilyComboBox.SelectedItem != null && !RichTextBox.Selection.IsEmpty)
                 {
-                    TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
+                    RichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyComboBox.SelectedItem);
 
-                    textRange.Text = " ";
-
-                    textRange.ApplyPropertyValue(FontFamilyProperty, defaultFontFamily);
+                    if (!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length - 1).Equals(' '))
+                    {
+                        TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
+                        textRange.Text = " ";
+                        textRange.ApplyPropertyValue(Inline.FontFamilyProperty, defaultFontFamily);
+                    }
                 }
 
-            }
-
-            if (FontFamilyComboBox.SelectedItem != null && RichTextBox.Selection.IsEmpty)
-            {
-                defaultFontFamily = FontFamilyComboBox.SelectedItem as FontFamily;
-                RichTextBox.FontFamily = defaultFontFamily;
-            }
-
+                if (FontFamilyComboBox.SelectedItem != null && RichTextBox.Selection.IsEmpty)
+                {
+                    defaultFontFamily = FontFamilyComboBox.SelectedItem as FontFamily;
+                    RichTextBox.FontFamily = defaultFontFamily;
+                }
             }
         }
 
 
         private void FontColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             if (isSetUp == false)
             {
+                FontColor = (Brush)new BrushConverter().ConvertFromString(FontColorComboBox.SelectedItem.ToString());
 
-
-            FontColor = (Brush)new BrushConverter().ConvertFromString(FontColorComboBox.SelectedItem.ToString());
-
-            if (FontColorComboBox.SelectedItem != null && !RichTextBox.Selection.IsEmpty)
-            {
-
-                RichTextBox.Selection.ApplyPropertyValue(Inline.ForegroundProperty, FontColor);
-
-
-                if (!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length - 1).Equals(' '))
+                if (FontColorComboBox.SelectedItem != null && !RichTextBox.Selection.IsEmpty)
                 {
+                    RichTextBox.Selection.ApplyPropertyValue(Inline.ForegroundProperty, FontColor);
 
-                    TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
-
-                    textRange.Text = " ";
-
-                    textRange.ApplyPropertyValue(ForegroundProperty, (Brush)new BrushConverter().ConvertFromString(defaultFontColor));
-
+                    if (!RichTextBox.Selection.Text.ElementAt(RichTextBox.Selection.Text.Length - 1).Equals(' '))
+                    {
+                        TextRange textRange = new TextRange(RichTextBox.Selection.End, RichTextBox.Selection.End);
+                        textRange.Text = " ";
+                        textRange.ApplyPropertyValue(Inline.ForegroundProperty, (Brush)new BrushConverter().ConvertFromString(defaultFontColor));
+                    }
                 }
-
-            }
-            else if (FontColorComboBox.SelectedItem != null && RichTextBox.Selection.IsEmpty)
-            {
-                defaultFontColor = FontColorComboBox.SelectedItem.ToString();
-                RichTextBox.Foreground = FontColor;
-            }
-
+                else if (FontColorComboBox.SelectedItem != null && RichTextBox.Selection.IsEmpty)
+                {
+                    defaultFontColor = FontColorComboBox.SelectedItem.ToString();
+                    RichTextBox.Foreground = FontColor;
+                }
             }
         }
 
@@ -450,8 +426,6 @@ namespace PZ1
         {
             if (isSetUp == false)
             {
-
-
                 if (RichTextBox.Selection.IsEmpty)
                 {
                     FontColorComboBox.SelectedItem = defaultFontColor;
@@ -460,17 +434,18 @@ namespace PZ1
                 }
 
                 TextRange textRange;
+
                 try
                 {
                     textRange = new TextRange(RichTextBox.CaretPosition, RichTextBox.CaretPosition.GetNextContextPosition(LogicalDirection.Backward));
-
                 }
-                catch (Exception ex) { return; }
+                catch (Exception ) 
+                { 
+                    return; 
+                }
 
                 FontWeight fontWeight = (FontWeight)textRange.GetPropertyValue(FontWeightProperty);
-
                 FontStyle fontStyle=(FontStyle)textRange.GetPropertyValue(FontStyleProperty);
-
 
                 if (fontWeight.ToString().Equals("Bold"))
                 {
@@ -490,7 +465,6 @@ namespace PZ1
                     ItalicToggleButton.IsChecked = false;
                 }
 
-    
                 if (textRange.GetPropertyValue(Underline.TextDecorationsProperty).Equals(TextDecorations.Underline))
                 {
                     UnderLineToggleButton.IsChecked = true;
@@ -499,9 +473,7 @@ namespace PZ1
                 {
                     UnderLineToggleButton.IsChecked = false;
                 }
-
             }
-
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -516,15 +488,13 @@ namespace PZ1
 
             if (imagePath == "")
             {
-                
                 error= true;
-                this.InvalidExtensionErrorLabel.Content = "Select an Image";
-                this.InvalidExtensionErrorLabel.Foreground = Brushes.Red;
-
+                this.ImageErrorLabel.Content = "Select an Image";
+                this.ImageErrorLabel.Foreground = Brushes.Red;
             }
             else
             {
-                this.InvalidExtensionErrorLabel.Foreground = Brushes.Black;
+                this.ImageErrorLabel.Foreground = Brushes.Black;
             }
 
             if (this.TitleTextBox.Text.Trim().Equals(string.Empty))
@@ -546,10 +516,11 @@ namespace PZ1
             {
                 string ratingValue=this.RatingTextBox.Text;
 
+                ratingValue=ratingValue.Replace(',', '.');
 
-                if (!double.TryParse(ratingValue, System.Globalization.NumberStyles.Any, CultureInfo.CurrentCulture, out rating) &&
-                    !double.TryParse(ratingValue, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out rating))
+                if (!double.TryParse(ratingValue, out rating))
                 {
+
                     if(rating<0 || rating > 10)
                     {
                         error = true;
@@ -559,18 +530,12 @@ namespace PZ1
                     {
                         this.RatingErrorTextBlock.Foreground = Brushes.Black;
                     }
-
                 }
                 else
                 {
                     this.RatingErrorTextBlock.Foreground = Brushes.Red;
-
                 }
-
-                
-
             }
-
 
             if (error)
             {
@@ -583,38 +548,35 @@ namespace PZ1
             FileStream fStream;
             range = new TextRange(RichTextBox.Document.ContentStart, RichTextBox.Document.ContentEnd);
 
-
             if (editOrAdd == false)
             {
+                var invalidChars = System.IO.Path.GetInvalidFileNameChars();
 
-            var invalidChars = System.IO.Path.GetInvalidFileNameChars();
+                string invalidCharsRemoved = new string(this.TitleTextBox.Text
+                      .Where(x => !invalidChars.Contains(x))
+                      .ToArray());
 
-            string invalidCharsRemoved = new string(this.TitleTextBox.Text
-              .Where(x => !invalidChars.Contains(x))
-              .ToArray());
+                string rtfPath = Directory.GetCurrentDirectory()+"\\Movies\\Description\\"+ invalidCharsRemoved+".rtf";
 
-            string rtfPath = Directory.GetCurrentDirectory()+"\\Movies\\Description\\"+ invalidCharsRemoved+".rtf";
+                using (fStream = new FileStream(rtfPath, FileMode.Create))
+                {
+                    range.Save(fStream, System.Windows.DataFormats.Rtf);
+                    fStream.Close();
+                }
 
+                DateTime dateTime = DateTime.Now;
 
-            using (fStream = new FileStream(rtfPath, FileMode.Create))
-            {
-                range.Save(fStream, System.Windows.DataFormats.Rtf);
-                fStream.Close();
-            }
+                Movie movie = new Movie(rating, this.TitleTextBox.Text, imagePath, rtfPath, dateTime.ToString("yyyy-MM-dd"));
 
-            DateTime dateTime = DateTime.Now;
+                Movies.Add(movie);
 
-            Movie movie = new Movie(rating, this.TitleTextBox.Text, imagePath, rtfPath, dateTime.ToString("yyyy-MM-dd"));
-
-            Movies.Add(movie);
                 booleanWrapper.Value = true;
 
                 this.Close();
-
             }
             else
             {
-                movie.Title = this.TitleTextBox.Text;
+                movie.Title = this.TitleTextBox.Text.Trim();
                 movie.Rating = rating;
                 movie.ImagePath = imagePath;
 
@@ -626,8 +588,8 @@ namespace PZ1
 
                 movie.IsOpened = false;
 
-
                 booleanWrapper.Value = true;
+
                 this.Close();
             }
         }

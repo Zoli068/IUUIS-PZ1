@@ -4,22 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PZ1"
-        WindowStartupLocation="CenterOwner"
-        AllowsTransparency="True"
-        WindowStyle="None"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Background="Transparent"
-        ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="MovieDeleteApproval" Height="150" Width="380">
+        Height="150" 
+        Width="380"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Title="MovieDeleteApproval" 
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <Border
         CornerRadius="25"
         BorderThickness="1"
         Background="Black"
         BorderBrush="White">
-        
+
         <Grid>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="3*"/>
@@ -30,22 +33,19 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-
-
             <Label 
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
                 Margin="0,20,0,0">
-                
+
                 <TextBlock
-                x:Name="AproveTextBlock"
-                TextWrapping="Wrap"
-                Text=" "
-                FontSize="20"
-                TextAlignment="Center"/>
+                    x:Name="AproveTextBlock"
+                    TextWrapping="Wrap"
+                    Text=" "
+                    FontSize="20"
+                    TextAlignment="Center"/>
 
             </Label>
-
 
             <Button
                 x:Name="Approve"
@@ -56,7 +56,7 @@
                 FontSize="35"
                 Height="40"
                 Content="Yes"/>
-            
+
             <Button
                 x:Name="Cancel"
                 Click="Cancel_Click"
@@ -68,7 +68,5 @@
                 Content="No"/>
 
         </Grid>
-        
     </Border>
-    
 </Window>
