@@ -1,10 +1,31 @@
 <?xml version="1.0"?>
 <ArrayOfMovie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Movie>
-    <Rating>2</Rating>
-    <Title>dfgsdf</Title>
+    <Rating>7.6</Rating>
+    <Title>Star wars 3 - Revenge of the Sith</Title>
+    <ImagePath>C:\Users\Zoli\Documents\Images\SW3.jpg</ImagePath>
+    <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\Star wars 3 - Revenge of the Sith.rtf</DescriptionPath>
+    <DateAdded>2024-03-28</DateAdded>
+  </Movie>
+  <Movie>
+    <Rating>8.6</Rating>
+    <Title>Star wars 4 - A new hope</Title>
     <ImagePath>C:\Users\Zoli\Documents\Images\SW4.jpg</ImagePath>
-    <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\dfgsdf.rtf</DescriptionPath>
-    <DateAdded>2024-03-27</DateAdded>
+    <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\Star wars 4 - A new hope.rtf</DescriptionPath>
+    <DateAdded>2024-03-28</DateAdded>
+  </Movie>
+  <Movie>
+    <Rating>8.7</Rating>
+    <Title>Star wars 5 - The empire strikes back</Title>
+    <ImagePath>C:\Users\Zoli\Documents\Images\SW5.jpg</ImagePath>
+    <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\Star wars 5 .rtf</DescriptionPath>
+    <DateAdded>2024-03-28</DateAdded>
+  </Movie>
+  <Movie>
+    <Rating>8.3</Rating>
+    <Title>star wars 6 - return of the jedi</Title>
+    <ImagePath>C:\Users\Zoli\Documents\Images\SW6.png</ImagePath>
+    <DescriptionPath>D:\Fakultet\III godina\Inzenjerstvo upotr.  -HCI\Predmetni zadatak 1\IUUIS-PZ1\PZ1\PZ1\bin\Debug\Movies\Description\star wars 6 - return of the jedi.rtf</DescriptionPath>
+    <DateAdded>2024-03-28</DateAdded>
   </Movie>
 </ArrayOfMovie>

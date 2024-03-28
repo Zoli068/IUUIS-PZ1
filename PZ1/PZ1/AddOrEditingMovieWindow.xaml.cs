@@ -478,6 +478,7 @@ namespace PZ1
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            movie.IsOpened = false;
             this.Close();
         }
 
@@ -516,9 +517,9 @@ namespace PZ1
             {
                 string ratingValue=this.RatingTextBox.Text;
 
-                ratingValue=ratingValue.Replace(',', '.');
+                ratingValue=ratingValue.Replace('.', ',');
 
-                if (!double.TryParse(ratingValue, out rating))
+                if (double.TryParse(ratingValue, out rating))
                 {
 
                     if(rating<0 || rating > 10)
@@ -533,6 +534,7 @@ namespace PZ1
                 }
                 else
                 {
+                    error = true;
                     this.RatingErrorTextBlock.Foreground = Brushes.Red;
                 }
             }

@@ -29,6 +29,8 @@ using Notification.Wpf.Base;
 using System.IO;
 using Notification.Wpf.Controls;
 using System.Media;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 
 namespace PZ1
@@ -39,8 +41,6 @@ namespace PZ1
     public partial class CMSWindow : Window
     {
         private ObservableCollection<Movie> movies = null;
-
-        public ObservableCollection<Movie> Movies { get { return movies; } set { movies = value; } }
 
         private NotificationManager notificationManager = new NotificationManager();
 
@@ -87,6 +87,19 @@ namespace PZ1
                 this.TitleColumn.Width = 395.5;
             }
         }
+
+        public ObservableCollection<Movie> Movies 
+        { 
+            get 
+            { 
+                return movies; 
+            } 
+            set 
+            { movies = value; 
+         
+            } 
+        }
+
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -228,6 +241,11 @@ namespace PZ1
 
                     if (booleanWrapper.Value)
                     {
+                        int position=Movies.IndexOf(movie);
+
+                        Movies.Remove(movie);
+                        Movies.Insert(position, movie);
+
                         var content = new NotificationContent
                         {
                             Title = "Success",

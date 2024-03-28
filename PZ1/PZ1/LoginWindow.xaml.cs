@@ -78,8 +78,11 @@ namespace PZ1
 
                 Show();
 
-                this.Left = leftPosition;
-                this.Top = topPosition;
+                if (!leftPosition.Equals(double.NaN))
+                {
+                    this.Left = leftPosition;
+                    this.Top = topPosition;
+                }
 
                 FocusManager.SetFocusedElement(FocusManager.GetFocusScope(LoginButton), null);
                 Keyboard.ClearFocus();
